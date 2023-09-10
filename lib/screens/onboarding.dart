@@ -3,14 +3,12 @@ import 'package:get/get.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:rama/screens/Signin.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import '../controller/login_controller.dart';
 import '../shared/components/components.dart';
 import '../shared/components/constants.dart';
 
 class onboarding extends StatelessWidget{
 
   final controller = LiquidController();
-  //SigninController controller = Get.put(SigninController());
 
 
   @override
@@ -56,7 +54,6 @@ class onboarding extends StatelessWidget{
                 AnimatedSmoothIndicator(
                   activeIndex: controller.currentPage,
                     count: 3,
-                  //duration: const Duration(milliseconds: 30),
                   effect: const ExpandingDotsEffect(
                     spacing:  8.0,
                     radius:  4.0,

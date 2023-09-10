@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rama/screens/Doctor/AddDiagnosis.dart';
@@ -47,10 +48,16 @@ class alldiagnoses extends StatelessWidget {
         padding: const EdgeInsets.all(20.0),
         child: Obx(() {
           if (diagnosisController.isLoading.isTrue) {
-            return const Center(
-              child: CircularProgressIndicator(
-                color: defaultGreen,
-                strokeWidth: 5,
+            return  Center(
+              child: SpinKitFadingCircle(
+                itemBuilder: (BuildContext context, int index) {
+                  return DecoratedBox(
+                    decoration: BoxDecoration(
+                      color:   defaultGreen,
+                      borderRadius: BorderRadiusDirectional.circular(10.0),
+                    ),
+                  );
+                },
               ),
             );
           }

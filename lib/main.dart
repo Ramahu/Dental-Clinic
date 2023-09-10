@@ -8,6 +8,7 @@ import 'package:rama/screens/Patient/Patient_layout.dart';
 import 'package:rama/screens/Signin.dart';
 import 'package:rama/screens/onboarding.dart';
 import 'package:rama/shared/components/constants.dart';
+import 'package:rama/shared/local/cache_helper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'locale/locale.dart';
 import 'locale/locale_controller.dart';
@@ -26,7 +27,9 @@ void main() async {
    FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   // await Firebase.initializeApp();
   // FirebaseMessaging.onBackgroundMessage(backgroundMessage);
-  sharepref = await SharedPreferences.getInstance();
+
+   await CacheHelper.init();
+
 
 
   runApp( MyApp());
@@ -41,6 +44,7 @@ class MyApp extends StatelessWidget {
     FlutterNativeSplash.remove();
 
     MyLocalController controller = Get.put(MyLocalController());
+
 
     // if(token != null)
     // {
@@ -62,8 +66,8 @@ class MyApp extends StatelessWidget {
     // }
 
     return GetMaterialApp(
-      title: 'dental',
-      locale: controller.initialang,
+      title: 'dental clinic',
+      locale: controller.initialLang,
       translations: MyLocale(),
       debugShowCheckedModeBanner: false,
       home:  onboarding(),

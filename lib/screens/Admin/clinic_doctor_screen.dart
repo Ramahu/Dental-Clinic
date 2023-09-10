@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rama/model/doctor_model.dart';
@@ -43,10 +44,16 @@ class Clinic_Doctors extends StatelessWidget {
             child :
            Obx( () {
              if (doctorController.isLoading.isTrue) {
-               return const Center(
-                 child: CircularProgressIndicator(
-                   color: defaultGreen,
-                   strokeWidth: 5,
+               return  Center(
+                 child: SpinKitFadingCircle(
+                   itemBuilder: (BuildContext context, int index) {
+                     return DecoratedBox(
+                       decoration: BoxDecoration(
+                         color: defaultGreen,
+                         borderRadius: BorderRadiusDirectional.circular(10.0),
+                       ),
+                     );
+                   },
                  ),
                );
              }

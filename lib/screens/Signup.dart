@@ -8,6 +8,8 @@ import '../controller/login_controller.dart';
 import 'package:rama/shared/components/components.dart';
 import '../controller/signup_controller.dart';
 import '../shared/components/constants.dart';
+import '../shared/local/cache_helper.dart';
+import 'Patient/Patient_layout.dart';
 
 class SignupScreeen extends StatelessWidget{
 
@@ -242,10 +244,19 @@ class SignupScreeen extends StatelessWidget{
             color2: Green2,
             function: () async{
               if(formKey.currentState!.validate()) {
-                // DataBaseHelper.loginData(
-                //   email: emailController.text,
-                //   pass: passwordController.text,
-                // );
+                DataBaseHelper.registerData(
+                  name: nameController.text,
+                  email: emailController.text,
+                  password: passwordController.text,
+                  conPass: confirmPassController.text,
+                  phone: phoneController.text,
+                  gender: signupController.selectedOption.value == "male" ? 0 : 1,
+                );
+                if (DataBaseHelper.signUp!.success == true ){
+                  Get.to(PatientLayout());
+                  CacheHelper.saveData(key: "token",
+                      value: DataBaseHelper.signUp!.token);
+                }
               }
             }
         ),

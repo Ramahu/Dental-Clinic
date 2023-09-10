@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import '../Network/DataBaseHelper.dart';
 import '../model/department_model.dart';
 import '../shared/components/constants.dart';
+import '../shared/local/cache_helper.dart';
 
 class DepartmentController extends GetxController {
 
@@ -12,6 +13,7 @@ class DepartmentController extends GetxController {
 
   var selectedOpenTime = DateTime.now().obs;
   var selectedCloseTime = DateTime.now().obs;
+  String  token = CacheHelper.getData(key: "token");
 
 
   chooseOpenTime() async{

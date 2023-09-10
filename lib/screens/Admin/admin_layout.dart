@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controller/admin/admin_HomeController.dart';
 import '../../shared/components/constants.dart';
+import 'clinic_Article_screen.dart';
+import 'clinic_depart_screen.dart';
+import 'clinic_doctor_screen.dart';
 import 'home_admin.dart';
 
 class AdminLayout extends StatelessWidget{
@@ -18,13 +21,19 @@ class AdminLayout extends StatelessWidget{
             index: homeController.tabIndex.toInt(),
             children: [
               HomeAdmin(),
-              //diagn
+              Clinic_Doctors(),
+              ClinicDep(),
+              ClinicArticle(),
+              //diagnoses
             ],
           ),
           bottomNavigationBar: CurvedNavigationBar(
             height: 60.0,
             items: const <Widget>[
               Icon(Icons.home, size: 30),
+              Icon(Icons.person, size: 30),
+              Icon(Icons.list, size: 30),
+              Icon(Icons.text_snippet_outlined, size: 30),
             ],
             key: bottomNavigationKey,
             color: white,

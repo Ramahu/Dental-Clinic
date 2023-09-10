@@ -6,6 +6,7 @@ import 'dart:io';
 import '../../Network/DataBaseHelper.dart';
 import '../../controller/doctor_controller.dart';
 import '../../shared/components/constants.dart';
+import '../../shared/local/cache_helper.dart';
 
 
 class  AddDoctor extends StatelessWidget {
@@ -19,6 +20,7 @@ class  AddDoctor extends StatelessWidget {
   //var phoneController = TextEditingController();
   var depIdController = TextEditingController();
   var formkey = GlobalKey<FormState>();
+  String  token = CacheHelper.getData(key: "token");
 
   @override
   Widget build(BuildContext context) {

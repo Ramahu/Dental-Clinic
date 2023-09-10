@@ -6,6 +6,7 @@ import '../../controller/diagnosis_controller.dart';
 import '../../model/patient_model.dart';
 import '../../shared/components/components.dart';
 import '../../shared/components/constants.dart';
+import '../../shared/local/cache_helper.dart';
 
 class AddDiagnosis extends StatelessWidget {
 
@@ -14,6 +15,7 @@ class AddDiagnosis extends StatelessWidget {
   DiagnosisController diagnosisController = Get.put(DiagnosisController());
   var priceController = TextEditingController();
   var descriptionController = TextEditingController();
+  String  token = CacheHelper.getData(key: "token");
 
 
   var formkey = GlobalKey<FormState>();

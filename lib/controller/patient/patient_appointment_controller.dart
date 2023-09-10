@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import '../../Network/DataBaseHelper.dart';
 import '../../model/appotmentmodel.dart';
 import '../../shared/components/constants.dart';
+import '../../shared/local/cache_helper.dart';
 
 class PatientAppointmentController extends GetxController {
 
@@ -11,6 +12,7 @@ class PatientAppointmentController extends GetxController {
   var isLoading = true.obs;
   var appTime = DateTime.now().obs;
   var appDate = DateTime.now().obs;
+  String  token = CacheHelper.getData(key: "token");
 
 
   chooseAppointmentTime() async {

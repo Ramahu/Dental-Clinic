@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../controller/Article_controller.dart';
@@ -42,10 +43,16 @@ class ClinicArticle extends StatelessWidget{
         padding: const EdgeInsets.all(20.0),
         child : Obx( () {
           if (articleController.isLoading.isTrue) {
-            return const Center(
-              child: CircularProgressIndicator(
-                color: defaultGreen,
-                strokeWidth: 5,
+            return  Center(
+              child: SpinKitFadingCircle(
+                itemBuilder: (BuildContext context, int index) {
+                  return DecoratedBox(
+                    decoration: BoxDecoration(
+                      color:   defaultGreen,
+                      borderRadius: BorderRadiusDirectional.circular(10.0),
+                    ),
+                  );
+                },
               ),
             );
           }

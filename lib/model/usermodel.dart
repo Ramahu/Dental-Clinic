@@ -1,15 +1,28 @@
-class SignModel{
+class SignInModel{
   bool? success;
   String? message;
   String? token;
 
-  SignModel.fromJson(Map<String,dynamic>json){
+  SignInModel.fromJson(Map<String,dynamic>json){
     message=json['message'];
      token=json['data'];
     success=json['success'];
   }
 
   }
+
+class SignUpModel{
+  bool? success;
+  String? message;
+  String? token;
+
+  SignUpModel.fromJson(Map<String,dynamic>json){
+    message=json['message'];
+    token=json['data'];
+    success=json['success'];
+  }
+
+}
 
 class UserModel{
   int? id;

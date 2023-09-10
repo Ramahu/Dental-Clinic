@@ -7,9 +7,11 @@ import '../Network/DataBaseHelper.dart';
 import '../controller/login_controller.dart';
 import 'package:rama/shared/components/components.dart';
 import '../shared/components/constants.dart';
+import '../shared/local/cache_helper.dart';
 import 'Admin/admin_layout.dart';
 import 'Doctor/doctor_layout.dart';
 import 'Patient/Patient_layout.dart';
+import 'forget_pass.dart';
 
 class SigninScreeen extends StatelessWidget{
 
@@ -124,8 +126,6 @@ class SigninScreeen extends StatelessWidget{
                   ),
                 ),
                 const SizedBox(height: 20.0,),
-
-                //Obx( ()=>
                     defaultTextForm(
                   controller:passwordController,
                   type: TextInputType.visiblePassword,
@@ -162,35 +162,34 @@ class SigninScreeen extends StatelessWidget{
                     borderSide:  BorderSide(color: defaultGreen,),
                   ),
                 ),
-                //),
                 const SizedBox(height: 30.0,),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.end,
-                //   children: [
-                //     Text('Forgot your password ?',
-                //       style:  GoogleFonts.abel(
-                //         textStyle: const TextStyle(
-                //           fontSize: 17.0,
-                //           fontWeight: FontWeight.bold,
-                //           color: Colors.grey,
-                //         ),
-                //       ),
-                //     ),
-                //     TextButton(
-                //       onPressed: (){},
-                //       child: Text('Change',
-                //         style:  GoogleFonts.abel(
-                //           textStyle: const TextStyle(
-                //             fontSize: 17.0,
-                //             fontWeight: FontWeight.bold,
-                //             color: Colors.black54,
-                //           ),
-                //         ),
-                //       ),
-                //     ),
-                //   ],
-                // ),
-                // const SizedBox(height: 20.0,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text('Forgot your password ?',
+                      style:  GoogleFonts.abel(
+                        textStyle: const TextStyle(
+                          fontSize: 17.0,
+                          fontWeight: FontWeight.bold,
+                          color: grey,
+                        ),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: (){  Get.to(forget_pass()); },
+                      child: Text('Change',
+                        style:  GoogleFonts.abel(
+                          textStyle: const TextStyle(
+                            fontSize: 17.0,
+                            fontWeight: FontWeight.bold,
+                            color: black54,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20.0,),
                 Center(
                   child: defaultGradientBottom(
           text: 'Sign in' ,
@@ -205,18 +204,34 @@ class SigninScreeen extends StatelessWidget{
            pass: passwordController.text,
           );
           }
-          if( DataBaseHelper.signin!.success = true){
+          if( DataBaseHelper.signIn!.success == true){
             if(loginController.selectedOption.value == 'Admin') {
               Get.to(AdminLayout());}
             if(loginController.selectedOption.value == 'Doctor') {
               Get.to(DoctorLayout());}
             if(loginController.selectedOption.value == 'Patient') {
               Get.to(PatientLayout());}
+            CacheHelper.saveData(key: "token", value: DataBaseHelper.signIn!.token);
           }
           }
                   ),
                 ),
                 const SizedBox(height: 30.0,),
+                TextButton(
+                  onPressed: () {
+                   Get.to(PatientLayout());
+                  },
+                  child: Text(
+                    'Skip',
+                    style: GoogleFonts.abel(
+                      textStyle: const TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                        color:black54,
+                      ),
+                    ),
+                  ),
+                ),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

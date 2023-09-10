@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import '../Network/DataBaseHelper.dart';
 import '../model/Article_model.dart';
-import '../shared/components/constants.dart';
+import '../shared/local/cache_helper.dart';
 
 class ArticleController extends GetxController {
 
@@ -12,6 +12,7 @@ class ArticleController extends GetxController {
   final imagePicker= ImagePicker();
   // final article = <ArticleModel>[].obs;
   // List<ArticleModel> get articleList => article.value;
+  String  token = CacheHelper.getData(key: "token");
 
 
   void pickImage() async {

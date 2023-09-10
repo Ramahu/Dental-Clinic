@@ -10,19 +10,14 @@ import '../model/Article_model.dart';
 import '../model/appotmentmodel.dart';
 import '../model/department_model.dart';
 import '../model/diagnosis_model.dart';
-import '../model/doctor_model.dart';
 import '../model/patient_model.dart';
 import '../model/usermodel.dart';
 import '../screens/Admin/admin_layout.dart';
-import '../screens/Admin/forgotpasswordverification_admin.dart';
-import '../screens/Admin/reset_newpassAdmin.dart';
 import '../screens/Doctor/doctor_layout.dart';
-import '../screens/Doctor/forgotpasswordverification_doctor.dart';
-import '../screens/Doctor/resetpassdoc.dart';
 import '../screens/Patient/Patient_layout.dart';
 import '../screens/Patient/forgotpasswordverification_patient.dart';
 import '../screens/Patient/resetnewpasspatient.dart';
-import '../shared/components/constants.dart';
+import '../shared/local/cache_helper.dart';
 
 class DataBaseHelper {
   static final  dio = Dio();
@@ -31,7 +26,9 @@ class DataBaseHelper {
   //static String? token;
   static final time = DateFormat.Hm();
   static final date = DateFormat('yyyy-MM-dd');
-  static SignModel? signin;
+  static SignInModel? signIn;
+  static SignUpModel? signUp;
+  static UserModel? userModel;
 
 
   static void loginData({
@@ -48,47 +45,40 @@ class DataBaseHelper {
         });
     var data = json.decode(response.body);
     print(data);
-    print('================statusCode=================');
+    print('=============loginData===statusCode=================');
     print(response.statusCode);
-    print('=================data======================');
-    signin = SignModel.fromJson(data);
-    print(signin!.message);
-    // if (response.statusCode == 200) {
-    //   Get.to(AdminLayout());
-    // }
-    token = data["access_token"];
-    //userId = data["id"];
+    print('=============loginData========================');
+    signIn = SignInModel.fromJson(data);
+    print(signIn!.message);
 
   }
 
-  // static Future signIn({
-  //  required String email,
-  //   required String password,
-  // }) async {
-  //   Response? response = await dio.post(
-  //     '$serverUrl/api/auth/login',
-  //     data:{
-  //       'email': email,
-  //       'password': password,
-  //     },
-  //     options: Options(
-  //         headers: <String,String>{
-  //           'Accept': 'application/json',
-  //         }
-  //     ),
-  //   ).then((value) {
-  //     signin = SignModel.fromJson(value.data);
-  //     print('========================data======================');
-  //     print(value.data);
-  //     print('========================data======================');
-  //     print(signin!.message);
-  //     print('=======================statusCode=================');
-  //     print(value.statusCode);
-  //     print('=================================================');
-  //   }).catchError((error){
-  //     print(error.toString());
-  //   });
-  // }
+  static registerData({
+    required String name,
+    required String email,
+    required String password,
+    required String phone,
+    required String conPass ,
+    int? gender
+  }) async {
+    String myUrl = "$serverUrl/api/register";
+    final response = await http.post(Uri.parse(myUrl),
+        headers: {
+          'Accept': 'application/json'
+        }, body: {
+          "name": name,
+          "email": email,
+          "phone": phone,
+          "password": password,
+          "c_password": conPass,
+          "gender" : gender,
+        });
+    var data = json.decode(response.body);
+    signUp = SignUpModel.fromJson(data);
+    print('=============registerData========================');
+    print(data);
+    print(response.statusCode);
+  }
 
 
   static Future AddDoctor({
@@ -486,9 +476,12 @@ class DataBaseHelper {
     print('==============================================');
     var data = json.decode(response.body);
     print(data);
+    userModel = UserModel.fromJson(data);
     if(response.statusCode == 200) {
-      userId = data["id"];
-      userName=data["name"];
+      CacheHelper.saveData(key: "id", value: userModel!.id);
+      CacheHelper.saveData(key: "name", value: userModel!.name);
+      CacheHelper.saveData(key: "email", value: userModel!.email);
+      CacheHelper.saveData(key: "image", value: userModel!.image);
     } else{
       return;
     }
@@ -503,107 +496,23 @@ class DataBaseHelper {
           'Accept': 'application/json',
           'auth-token': token,
         });
-    print('=======================statusCode=================');
+    print('====================docme===statusCode=================');
     print(response.statusCode);
     print('========================body======================');
     print(response.body);
-    print('==============================================');
     var data = json.decode(response.body);
     print(data);
     if (response.statusCode == 200) {
-      doctorId = data["id"];
-      doctorName = data["name"];
+      CacheHelper.saveData(key: "doc_id", value: data["id"] );
+      CacheHelper.saveData(key: "doc_name", value: data["name"] );
     } else {
       return;
     }
   }
 
 
-  static void loginData1({
-    required String email,
-    required String pass,
-    //required var isAdmin,
-   // required var isDoctor,
-    // var isPatient,
-  }) async {
-    String myUrl = "$serverUrl/api/login";
-    final response = await http.post(Uri.parse(myUrl), headers: {
-      'Accept': 'application/json'
-    }, body: {
-      "email": email,
-      "password": pass,
-      // 'isAdmin': 'false',
-      // 'isDoctor':isDoctor,
-      // 'isPatient':'false',
-    });
-    var data = json.decode(response.body);
-    print(data);
-    print(response.statusCode);
-    if (response.statusCode == 200) {
-      Get.to(DoctorLayout());
-    }
-    token = data["access_token"];
-    //userId = data["userId"];
-    // print('data : ${data["access_token"]}');
-    // _save(data["access_token"]);
-  }
 
-  static void loginData2({
-    required String email,
-    required String pass,
-    //required var isAdmin,
-    //required var isDoctor,
-   // required var isPatient,
-  }) async {
-    String myUrl = "$serverUrl/api/login";
-    final response = await http.post(Uri.parse(myUrl),
-        headers: {
-          'Accept': 'application/json'
-        }, body: {
-          "email": email,
-          "password": pass,
-          // 'isAdmin': 'false',
-          // 'isDoctor':'false',
-          // 'isPatient':isPatient,
-        });
-    var data = json.decode(response.body);
-    print(data);
-    print(response.statusCode);
-    if (response.statusCode == 200) {
-      Get.to(PatientLayout());
-    }
-    token = data["access_token"];
-    //userId = data["userId"];
-    // print('data : ${data["access_token"]}');
-    // _save(data["access_token"]);
-  }
-
-  static registerData(String fname, String lname, String email, String password,
-      String phone, String pass2) async {
-    String myUrl = "$serverUrl/api/register";
-    final response = await http.post(Uri.parse(myUrl),
-        headers: {
-          'Accept': 'application/json'
-        }, body: {
-          "name": "$fname $lname",
-          "email": email,
-          "phone": phone,
-          "password": password,
-          "c_password": pass2,
-        });
-    var data = json.decode(response.body);
-    print(data);
-    print(response.statusCode);
-    if (response.statusCode == 200) {
-      Get.to(PatientLayout());
-    }
-    token = data["access_token"];
-    userId = data["userId"];
-    // print('data : ${data["data"]}');
-    // _save(data["data"]);
-  }
-
-  static repassData(String email) async {
+  static repassData({required String email}) async {
     String myUrl = "$serverUrl/check password";
     final response = await http.post(Uri.parse(myUrl), headers: {
       'Accept': 'application/json'
@@ -613,39 +522,9 @@ class DataBaseHelper {
     var data = json.decode(response.body);
     print(data);
     print(response.statusCode);
-    if (response.statusCode == 200) {
-      Get.to(forgotpasswordverification_admin());
-    }
-  }
-
-  static repassData1(String email) async {
-    String myUrl = "$serverUrl/check password";
-    final response = await http.post(Uri.parse(myUrl), headers: {
-      'Accept': 'application/json'
-    }, body: {
-      "email": email,
-    });
-    var data = json.decode(response.body);
-    print(data);
-    print(response.statusCode);
-    if (response.statusCode == 200) {
-     Get.to(forgotpasswordverification_doctor());
-    }
-  }
-
-  static repassData2(String email) async {
-    String myUrl = "$serverUrl/check password";
-    final response = await http.post(Uri.parse(myUrl), headers: {
-      'Accept': 'application/json'
-    }, body: {
-      "email": email,
-    });
-    var data = json.decode(response.body);
-    print(data);
-    print(response.statusCode);
-    if (response.statusCode == 200) {
-      Get.to(forgotpasswordverification_patient());
-    }
+    // if (response.statusCode == 200) {
+    //   Get.to(forgotpasswordverification_admin());
+    // }
   }
 
   static repassvData(var code) async {
@@ -658,9 +537,9 @@ class DataBaseHelper {
     var data = json.decode(response.body);
     print(data);
     print(response.statusCode);
-    if (response.statusCode == 200) {
-      Get.to(reset_newpassAdmin());
-    }
+    // if (response.statusCode == 200) {
+    //   Get.to(reset_newpassAdmin());
+    // }
   }
 
   static repassvData1(var code) async {
@@ -673,9 +552,9 @@ class DataBaseHelper {
     var data = json.decode(response.body);
     print(data);
     print(response.statusCode);
-    if (response.statusCode == 200) {
-      Get.to(resetpassdoc());
-    }
+    // if (response.statusCode == 200) {
+    //   Get.to(resetpassdoc());
+    // }
   }
 
   static repassvData2(var code) async {

@@ -1,13 +1,15 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../Network/DataBaseHelper.dart';
 import '../../model/appotmentmodel.dart';
 import '../../shared/components/constants.dart';
+import '../../shared/local/cache_helper.dart';
 
 class DoctorAppointmentController extends GetxController {
 
   List<AppointmentModel> AppointmentList =[];
   var isLoading = true.obs;
+  String  token = CacheHelper.getData(key: "token");
+
   void onInit() {
     super.onInit();
   }

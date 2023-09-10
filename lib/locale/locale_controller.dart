@@ -1,15 +1,16 @@
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import '../main.dart';
+import '../shared/local/cache_helper.dart';
 
 class MyLocalController extends GetxController {
-  Locale initialang =
-      sharepref!.getString("lang") == "ar" ? Locale("ar") : Locale("en");
+  Locale initialLang = CacheHelper.getData(key: "lang") == "ar" ? Locale("ar") : Locale("en") ;
+  var lang = CacheHelper.getData(key: "lang");
 
   void changeLang(String codelang) {
     Locale locale = Locale(codelang);
-    sharepref!.setString("lang", codelang);
+    CacheHelper.saveData(key: "lang", value: codelang);
+
     Get.updateLocale(locale);
   }
 }

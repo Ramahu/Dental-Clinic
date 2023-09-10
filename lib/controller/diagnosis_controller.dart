@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import '../Network/DataBaseHelper.dart';
 import '../model/diagnosis_model.dart';
 import '../shared/components/constants.dart';
+import '../shared/local/cache_helper.dart';
 
 class DiagnosisController extends GetxController {
 //doctor
@@ -11,6 +12,7 @@ class DiagnosisController extends GetxController {
   var isLoading = true.obs;
   var selectedapptime = DateTime.now().obs;
   var appodate = DateTime.now().obs;
+  String  token = CacheHelper.getData(key: "token");
 
 
   @override

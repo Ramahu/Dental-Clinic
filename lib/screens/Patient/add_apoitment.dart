@@ -6,6 +6,7 @@ import '../../controller/patient/patient_appointment_controller.dart';
 import '../../model/doctor_model.dart';
 import '../../shared/components/components.dart';
 import '../../shared/components/constants.dart';
+import '../../shared/local/cache_helper.dart';
 
 class AddAppointment extends StatelessWidget{
 
@@ -13,6 +14,7 @@ class AddAppointment extends StatelessWidget{
   AddAppointment({Key? key,  required this.doctor}) : super(key: key);
   PatientAppointmentController appController= Get.put(PatientAppointmentController());
   var formkey = GlobalKey<FormState>();
+  String  token = CacheHelper.getData(key: "token");
 
   @override
   Widget build(BuildContext context) {

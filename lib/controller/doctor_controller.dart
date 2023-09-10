@@ -5,6 +5,7 @@ import 'package:rama/model/doctor_model.dart';
 import 'package:rating_dialog/rating_dialog.dart';
 import '../Network/DataBaseHelper.dart';
 import '../shared/components/constants.dart';
+import '../shared/local/cache_helper.dart';
 
 class DoctorController extends GetxController {
 
@@ -20,6 +21,7 @@ class DoctorController extends GetxController {
   // List<DoctorModel> get doctorList => doctor.value;
   //  var imagePath=''.obs;
   // PickedFile? pickedFile = ''.obs as PickedFile?;
+  String  token = CacheHelper.getData(key: "token");
 
 
    @override

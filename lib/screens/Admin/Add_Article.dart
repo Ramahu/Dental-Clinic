@@ -5,8 +5,8 @@ import 'package:rama/shared/components/components.dart';
 import 'dart:io';
 import '../../Network/DataBaseHelper.dart';
 import '../../controller/Article_controller.dart';
-import '../../model/Article_model.dart';
 import '../../shared/components/constants.dart';
+import '../../shared/local/cache_helper.dart';
 
 
 class AddArticle extends StatelessWidget {
@@ -15,6 +15,7 @@ class AddArticle extends StatelessWidget {
   var titleController = TextEditingController();
   var descriptionController = TextEditingController();
   var formkey = GlobalKey<FormState>();
+  String  token = CacheHelper.getData(key: "token");
 
 
   @override

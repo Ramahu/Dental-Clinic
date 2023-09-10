@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rama/screens/Doctor_profile.dart';
@@ -45,10 +46,16 @@ class DepDoc extends StatelessWidget{
         child :
         Obx( () {
           if (docController.isLoading.isTrue) {
-            return const Center(
-              child: CircularProgressIndicator(
-                color: Green1,
-                strokeWidth: 5,
+            return  Center(
+              child: SpinKitFadingCircle(
+                itemBuilder: (BuildContext context, int index) {
+                  return DecoratedBox(
+                    decoration: BoxDecoration(
+                      color:   defaultGreen,
+                      borderRadius: BorderRadiusDirectional.circular(10.0),
+                    ),
+                  );
+                },
               ),
             );
           }
