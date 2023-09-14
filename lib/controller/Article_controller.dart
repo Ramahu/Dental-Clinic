@@ -12,7 +12,7 @@ class ArticleController extends GetxController {
   final imagePicker= ImagePicker();
   // final article = <ArticleModel>[].obs;
   // List<ArticleModel> get articleList => article.value;
-  String  token = CacheHelper.getData(key: "token");
+  //String  token = CacheHelper.getData(key: "token");
 
 
   void pickImage() async {
@@ -32,9 +32,9 @@ class ArticleController extends GetxController {
   }
   @override
   void onReady() async{
-    ArticleList = await DataBaseHelper.getArticle(
-      token: token.toString(),
-    );
+    // ArticleList = await DataBaseHelper.getArticle(
+    //   token: token.toString(),
+    // );
     isLoading(false);
     super.onReady();
 

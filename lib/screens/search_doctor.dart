@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rama/screens/Doctor_profile.dart';
@@ -59,22 +60,40 @@ class searchDoctor extends StatelessWidget{
                 padding:  const EdgeInsets.all(20.0),
                 child: Obx( () {
                   if (isLoading.isTrue) {
-                    return const Center(
-                      child: CircularProgressIndicator(
-                        color: defaultGreen,
-                        strokeWidth: 5,
+                    return  Center(
+                      child: SpinKitFadingCircle(
+                        itemBuilder: (BuildContext context, int index) {
+                          return DecoratedBox(
+                            decoration: BoxDecoration(
+                              color: defaultGreen,
+                              borderRadius: BorderRadiusDirectional.circular(10.0),
+                            ),
+                          );
+                        },
                       ),
                     );
                   }
-                  return ListView.separated(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                      itemBuilder: (context, index) => buildDocItem(context,
-                        searchList[index],
-                      ),
-                      separatorBuilder: (context, index) => const SizedBox(height: 12.0,),
+                  if(searchList.isNotEmpty) {
+                    return ListView.separated(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) =>
+                          buildDocItem(context,
+                            searchList[index],
+                          ),
+                      separatorBuilder: (context, index) =>
+                      const SizedBox(height: 12.0,),
                       itemCount: searchList.length,
+                    );
+                  }
+                  return  Center(
+                    child: Image.asset(
+                      'assets/images/d1.png',
+                    ),
                   );
+                  // Center(
+                  //   child: Text('No item yet'),
+                  // );
                 }),
               ),
             ],

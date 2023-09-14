@@ -15,8 +15,9 @@ import '../model/usermodel.dart';
 import '../screens/Admin/admin_layout.dart';
 import '../screens/Doctor/doctor_layout.dart';
 import '../screens/Patient/Patient_layout.dart';
-import '../screens/Patient/forgotpasswordverification_patient.dart';
-import '../screens/Patient/resetnewpasspatient.dart';
+import '../screens/Signin.dart';
+import '../screens/passVer.dart';
+import '../screens/resetPass.dart';
 import '../shared/local/cache_helper.dart';
 
 class DataBaseHelper {
@@ -522,97 +523,46 @@ class DataBaseHelper {
     var data = json.decode(response.body);
     print(data);
     print(response.statusCode);
-    // if (response.statusCode == 200) {
-    //   Get.to(forgotpasswordverification_admin());
-    // }
+    if (response.statusCode == 200) {
+      Get.to(forget_pass_ver());
+    }
   }
 
-  static repassvData(var code) async {
+  static repassVer(var code) async {
     String myUrl = "$serverUrl/check password";
     final response = await http.post(Uri.parse(myUrl), headers: {
       'Accept': 'application/json'
     }, body: {
-      "code": "$code",
-    });
-    var data = json.decode(response.body);
-    print(data);
-    print(response.statusCode);
-    // if (response.statusCode == 200) {
-    //   Get.to(reset_newpassAdmin());
-    // }
-  }
-
-  static repassvData1(var code) async {
-    String myUrl = "$serverUrl/check password";
-    final response = await http.post(Uri.parse(myUrl), headers: {
-      'Accept': 'application/json'
-    }, body: {
-      "code": "$code",
-    });
-    var data = json.decode(response.body);
-    print(data);
-    print(response.statusCode);
-    // if (response.statusCode == 200) {
-    //   Get.to(resetpassdoc());
-    // }
-  }
-
-  static repassvData2(var code) async {
-    String myUrl = "$serverUrl/check password";
-    final response = await http.post(Uri.parse(myUrl), headers: {
-      'Accept': 'application/json'
-    }, body: {
-      "code": "$code",
+      "code": code,
     });
     var data = json.decode(response.body);
     print(data);
     print(response.statusCode);
     if (response.statusCode == 200) {
-      Get.to(resetpasspatient());
+      Get.to(reset_pass());
     }
   }
 
-  static newpass(String pass, String c_pass) async {
+
+  static newPass(String pass, String c_pass) async {
     String myUrl = "$serverUrl/reset password";
     final response = await http.post(Uri.parse(myUrl),
         headers: {'Accept': 'application/json'},
-        body: {"pass": "$pass", "cpass": "$c_pass"});
+        body: {
+      "pass": pass,
+      "cpass": c_pass ,
+    });
     var data = json.decode(response.body);
     print(data);
     print(response.statusCode);
     if (response.statusCode == 200) {
-      Get.to((AdminLayout()));
+      Get.to((SigninScreeen()));
     }
 
   }
 
-  static newpass1(String pass, String c_pass) async {
-    String myUrl = "$serverUrl/reset password";
-    final response = await http.post(Uri.parse(myUrl),
-        headers: {'Accept': 'application/json'},
-        body: {"pass": "$pass", "cpass": "$c_pass"});
-    var data = json.decode(response.body);
-    print(data);
-    print(response.statusCode);
-    if (response.statusCode == 200) {
-      Get.to((DoctorLayout()));
-    }
 
-  }
 
-  static newpass2(String pass, String c_pass) async {
-    String myUrl = "$serverUrl/reset password";
-    final response = await http.post(Uri.parse(myUrl),
-        headers: {'Accept': 'application/json'},
-        body: {"pass": "$pass", "cpass": "$c_pass"});
-    var data = json.decode(response.body);
-    print(data);
-    print(response.statusCode);
-    if (response.statusCode == 200) {
-      Get.to((PatientLayout()));
-    }
-
-  }
 
 
 

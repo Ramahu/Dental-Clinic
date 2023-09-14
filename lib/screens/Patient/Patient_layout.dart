@@ -1,4 +1,5 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slider_drawer/flutter_slider_drawer.dart';
 import 'package:get/get.dart';
@@ -29,9 +30,10 @@ class PatientLayout extends StatelessWidget{
         ),
       bottomNavigationBar: CurvedNavigationBar(
         height: 60.0,
-        items: const <Widget>[
-          Icon(Icons.home, size: 30),
-          Icon(Icons.date_range, size: 30),
+        items:  <Widget>[
+          Icon(FluentIcons.dentist_12_regular ,size: 30),
+          //Icon(Icons.home, size: 30),
+          Icon(FluentIcons.task_list_square_ltr_16_regular, size: 30),
         ],
         key: bottomNavigationKey,
         color: white,

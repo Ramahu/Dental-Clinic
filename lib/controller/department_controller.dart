@@ -13,7 +13,7 @@ class DepartmentController extends GetxController {
 
   var selectedOpenTime = DateTime.now().obs;
   var selectedCloseTime = DateTime.now().obs;
-  String  token = CacheHelper.getData(key: "token");
+  //String  token = CacheHelper.getData(key: "token");
 
 
   chooseOpenTime() async{
@@ -46,9 +46,9 @@ class DepartmentController extends GetxController {
   @override
   void onReady() async{
     //DataBaseHelper.token
-    DepartmentList= await DataBaseHelper.getDepartments(
-      token: token.toString(),
-    );
+    // DepartmentList= await DataBaseHelper.getDepartments(
+    //   token: token.toString(),
+    // );
     isLoading(false);
     super.onReady();
   }

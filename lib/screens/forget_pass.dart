@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rama/screens/Patient/forgotpasswordverification_patient.dart';
+import 'package:rama/screens/passVer.dart';
 import '../Network/DataBaseHelper.dart';
 import '../shared/components/components.dart';
 import '../shared/components/constants.dart';
@@ -15,138 +15,197 @@ class forget_pass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Form(
-              key: formKey,
+        body: Stack(
+          children:[
+          Positioned(
+          top: 0,
+          right: 0,
+          left: 0,
+          child: Container(
+            height: 300,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [Green1,Green2],
+              ),
+              borderRadius:  BorderRadius.vertical(bottom: Radius.circular(50)),
+            ),
+            child: Container(
+              padding: EdgeInsets.only(top: 20, left: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Center(
-                        child: Image.asset(
-                          'assets/images/dentalogo.png',
-                          width: MediaQuery.of(context).size.width * 0.5,
-                          height: 90,
-                        ),
-                      ),
-                      const SizedBox(height: 10.0,),
-                      ShaderMask(
-                        shaderCallback: (rect) => const LinearGradient(
-                          colors: [Green1,Green2],).createShader(rect),
-                        child:  Text('Forgot Password ?',
-                          style:  GoogleFonts.dancingScript(
-                            textStyle: const TextStyle(
-                              fontSize: 30.0,
-                              fontWeight: FontWeight.bold,
-                              color: grey,
+                children: [
+                  backCircle(),
+                  Center(
+                    child: Image.asset(
+                      'assets/images/logo2.png',
+                      width: MediaQuery.of(context).size.width * 0.5,
+                      height: 90,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+    AnimatedPositioned(
+    top: 200,
+    left: 40,
+    duration:Duration(milliseconds: 700),
+    curve: Curves.bounceInOut,
+    child: AnimatedContainer(
+    duration: Duration(milliseconds: 700),
+    curve: Curves.bounceInOut,
+    height: 700 ,
+    width: MediaQuery.of(context).size.width - 80,
+    decoration: BoxDecoration(
+    color: white,
+    borderRadius: BorderRadius.circular(15),
+    boxShadow: [
+    BoxShadow(
+    color: Colors.black.withOpacity(0.3),
+    blurRadius: 15,
+    spreadRadius: 5),
+    ],
+    ),
+          child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Form(
+                key: formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const SizedBox(height: 20.0,),
+                        ShaderMask(
+                          shaderCallback: (rect) => const LinearGradient(
+                            colors: [Green1,Green2],).createShader(rect),
+                          child:  Text('Forgot Password ?',
+                            style:  GoogleFonts.dancingScript(
+                              textStyle: const TextStyle(
+                                fontSize: 30.0,
+                                fontWeight: FontWeight.bold,
+                                color: grey,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      const SizedBox(
-                              height: 10,
-                            ),
-                      const  Text(
-                              'Enter the email address associated with your account.',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: black54,
+                        const SizedBox(
+                                height: 35,
                               ),
-                            ),
-                      const  SizedBox(
-                              height: 10,
-                            ),
-                      const  Text(
-                              'We will email you a verification code to check your authenticity.',
-                              style: TextStyle(
-                                color: black54,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                      const  SizedBox(height: 20.0),
-                      defaultTextForm(
-                        controller: email,
-                        type: TextInputType.emailAddress,
-                        autoValidateMode: AutovalidateMode.onUserInteraction,
-                        autofillHints: [AutofillHints.email],
-                        label: 'Email Address',
-                        labelStyle: const TextStyle(color: grey,),
-                        prefix: const Icon(Icons.mail_outline_outlined,
-                          color: defaultGreen,),
-                        validate: (value){
-                          if(value!.isEmpty){
-                            return 'Please enter email address' ;
-                          }
-                          return null;
-                        },
-                        border: const OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(25)),
-                          borderSide:  BorderSide(color: defaultGreen,),
-                        ),
-                        focusedBorder:const OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(25)),
-                          borderSide:  BorderSide(color: defaultGreen,),
-                        ),
-                        enableBorder:const OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(25)),
-                          borderSide:  BorderSide(color: defaultGreen,),
-                        ),
-                      ),
-                      const  SizedBox(height: 20.0),
-                            Center(
-                              child: defaultGradientBottom(
-                                  text: 'Send' ,
-                                  width:  MediaQuery.of(context).size.width * 0.8,
-                                  height: 50.0,
-                                  color1:  Green1,
-                                  color2: Green2,
-                                  function: () async{
-                                    if(formKey.currentState!.validate()) {
-                                      DataBaseHelper.repassData(
-                                        email: email.text,
-                                      );
-
-                                      Get.to(() => forgotpasswordverification_patient());
-                                    }
-                                  }
-                              ),
-                            ),
-                      const SizedBox(height: 20.0),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text('Remember your password? ',
-                                  style:  GoogleFonts.abel(
-                                    textStyle: const TextStyle(
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: grey,
-                                    ),
-                                  ),
+                        const  Text(
+                                'Enter the email address associated with your account.',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: black54,
                                 ),
-                                TextButton(
-                                  onPressed: (){Get.to(SigninScreeen() ); },
-                                  child: Text('Sign in',
+                              ),
+                        const  SizedBox(
+                                height: 10,
+                              ),
+                        const  Text(
+                                'We will email you a verification code to check your authenticity.',
+                                style: TextStyle(
+                                  color: black54,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                        const  SizedBox(height: 30.0),
+                        defaultTextForm(
+                          controller: email,
+                          type: TextInputType.emailAddress,
+                          autoValidateMode: AutovalidateMode.onUserInteraction,
+                          autofillHints: [AutofillHints.email],
+                          label: 'Email Address',
+                          labelStyle: const TextStyle(color: grey,),
+                          prefix: const Icon(Icons.mail_outline_outlined,
+                            color: defaultGreen,),
+                          validate: (value){
+                            if(value!.isEmpty){
+                              return 'Please enter email address' ;
+                            }
+                            return null;
+                          },
+                          border: const OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(25)),
+                            borderSide:  BorderSide(color: defaultGreen,),
+                          ),
+                          focusedBorder:const OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(25)),
+                            borderSide:  BorderSide(color: defaultGreen,),
+                          ),
+                          enableBorder:const OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(25)),
+                            borderSide:  BorderSide(color: defaultGreen,),
+                          ),
+                        ),
+                        const  SizedBox(height: 20.0),
+                              Center(
+                                child: defaultGradientBottom(
+                                    text: 'Send' ,
+                                    width:  MediaQuery.of(context).size.width * 0.8,
+                                    height: 50.0,
+                                    color1:  Green1,
+                                    color2: Green2,
+                                    function: () async{
+                                      if(formKey.currentState!.validate()) {
+                                        DataBaseHelper.repassData(
+                                          email: email.text,
+                                        );
+                                        Get.to(() => forget_pass_ver());
+                                      }
+                                    }
+                                ),
+                              ),
+                        const SizedBox(height: 20.0),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text('Remember your password? ',
                                     style:  GoogleFonts.abel(
                                       textStyle: const TextStyle(
                                         fontSize: 18.0,
                                         fontWeight: FontWeight.bold,
-                                        color: black54,
+                                        color: grey,
                                       ),
                                     ),
                                   ),
-                                ),
-                              ],
-                            ),
+                                  TextButton(
+                                    onPressed: (){Get.to(SigninScreeen() ); },
+                                    child: Text('Sign in',
+                                      style:  GoogleFonts.abel(
+                                        textStyle: const TextStyle(
+                                          fontSize: 18.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: black54,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
                                 ],
                               ),
-                              ),
-          ),
-                      ),
+                                  ],
+                                ),
+                                ),
+            ),
+                        ),
+    ),
+    ),
+            Positioned(
+              top: MediaQuery.of(context).size.height - 100,
+              child:  Column(
+                children: [
+                  const SizedBox(
+                    height: 50,
+                  ),
+                ],
+              ),),
+      ],
+        ),
 
     );
   }

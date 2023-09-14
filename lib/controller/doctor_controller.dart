@@ -21,7 +21,7 @@ class DoctorController extends GetxController {
   // List<DoctorModel> get doctorList => doctor.value;
   //  var imagePath=''.obs;
   // PickedFile? pickedFile = ''.obs as PickedFile?;
-  String  token = CacheHelper.getData(key: "token");
+  //String  token = CacheHelper.getData(key: "token");
 
 
    @override
@@ -34,9 +34,9 @@ class DoctorController extends GetxController {
   }
    @override
    void onReady() async{
-     DoctorList = await DataBaseHelper.getDoctors(
-       token: token.toString(),
-     );
+     // DoctorList = await DataBaseHelper.getDoctors(
+     //   token: token.toString(),
+     // );
      isLoading(false);
      super.onReady();
 
