@@ -37,18 +37,19 @@ class PatientHome extends StatelessWidget {
             ? SlideDirection.RIGHT_TO_LEFT
             : SlideDirection.LEFT_TO_RIGHT,
         key: controller.sliderDrawerKey,
-        sliderOpenSize: 190,
+        sliderOpenSize: 270,
         appBar: SliderAppBar(
+          appBarHeight: 90,
           appBarColor: white,
           isTitleCenter: false,
-          appBarPadding: const EdgeInsets.all(10),
+          appBarPadding: const EdgeInsets.only(top: 30,bottom: 10),
           title: ShaderMask(
             shaderCallback: (rect) => const LinearGradient(
         colors: [Green1,Green2],).createShader(rect),
       child:  Text('       Smile',
         style:  GoogleFonts.dancingScript(
           textStyle: const TextStyle(
-            fontSize: 18.0,
+            fontSize: 20.0,
             fontWeight: FontWeight.bold,
             color: grey,
           ),

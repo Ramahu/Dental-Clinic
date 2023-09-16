@@ -39,8 +39,9 @@ class forget_pass_ver extends StatelessWidget {
                 Center(
                   child: Image.asset(
                     'assets/images/logo2.png',
-                    width: MediaQuery.of(context).size.width * 0.5,
-                    height: 90,
+                    width: 170,
+                    height: 100,
+                    fit:  BoxFit.fitWidth,
                   ),
                 ),
               ],
@@ -50,14 +51,14 @@ class forget_pass_ver extends StatelessWidget {
       ),
     AnimatedPositioned(
     top: 200,
-    left: 40,
+    left: 20,
     duration:Duration(milliseconds: 700),
     curve: Curves.bounceInOut,
     child: AnimatedContainer(
     duration: Duration(milliseconds: 700),
     curve: Curves.bounceInOut,
-    height: 500 ,
-    width: MediaQuery.of(context).size.width - 80,
+    height: 400 ,
+    width: MediaQuery.of(context).size.width - 40,
     decoration: BoxDecoration(
     color: white,
     borderRadius: BorderRadius.circular(15),
@@ -71,7 +72,7 @@ class forget_pass_ver extends StatelessWidget {
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(8.0),
             child: Form(
               key: formKey,
               child: Column(
@@ -95,10 +96,9 @@ class forget_pass_ver extends StatelessWidget {
                     height: 35,
                   ),
                   const  Text(
-                    'Enter the verification code we just sent you on your email address.',
+                    'Enter the verification code we just sent on your email address.',
                     style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
                       color: black54,
                     ),
                   ),
@@ -162,7 +162,7 @@ class forget_pass_ver extends StatelessWidget {
                       Text('If you didn\'t receive a code ! ',
                         style:  GoogleFonts.abel(
                           textStyle: const TextStyle(
-                            fontSize: 18.0,
+                            fontSize: 14.0,
                             fontWeight: FontWeight.bold,
                             color: grey,
                           ),
@@ -173,7 +173,7 @@ class forget_pass_ver extends StatelessWidget {
                         child: Text('Resend',
                           style:  GoogleFonts.abel(
                             textStyle: const TextStyle(
-                              fontSize: 18.0,
+                              fontSize: 14.0,
                               fontWeight: FontWeight.bold,
                               color: black54,
                             ),

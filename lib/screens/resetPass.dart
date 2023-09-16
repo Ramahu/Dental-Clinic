@@ -40,8 +40,9 @@ class reset_pass extends StatelessWidget {
                 Center(
                   child: Image.asset(
                     'assets/images/logo2.png',
-                    width: MediaQuery.of(context).size.width * 0.5,
-                    height: 90,
+                    width: 170,
+                    height: 100,
+                    fit:  BoxFit.fitWidth,
                   ),
                 ),
               ],
@@ -51,14 +52,14 @@ class reset_pass extends StatelessWidget {
       ),
     AnimatedPositioned(
     top: 200,
-    left: 40,
+    left: 20,
     duration:Duration(milliseconds: 700),
     curve: Curves.bounceInOut,
     child: AnimatedContainer(
     duration: Duration(milliseconds: 700),
     curve: Curves.bounceInOut,
-    height: 500 ,
-    width: MediaQuery.of(context).size.width - 80,
+    height: 450 ,
+    width: MediaQuery.of(context).size.width - 40,
     decoration: BoxDecoration(
     color: white,
     borderRadius: BorderRadius.circular(15),
@@ -72,13 +73,13 @@ class reset_pass extends StatelessWidget {
     child:SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(8.0),
           child: Form(
             key: formKey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const SizedBox(height: 20.0,),
+                const SizedBox(height: 30.0,),
                 ShaderMask(
                   shaderCallback: (rect) => const LinearGradient(
                     colors: [Green1,Green2],).createShader(rect),
@@ -99,7 +100,6 @@ class reset_pass extends StatelessWidget {
                   'Enter new password',
                   style: TextStyle(
                     fontSize: 18,
-                    fontWeight: FontWeight.bold,
                     color: black54,
                   ),
                 ),
@@ -141,7 +141,7 @@ class reset_pass extends StatelessWidget {
                 defaultTextForm(
                   controller:confirmPassController,
                   type: TextInputType.visiblePassword,
-                  label: 'Confirm Password',
+                  label: 'Confirm Pass',
                   labelStyle: const TextStyle(color: grey,),
                   maxLines: 1,
                   prefix: const Icon(Icons.key_outlined,

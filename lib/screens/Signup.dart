@@ -33,7 +33,7 @@ class SignupScreeen extends StatelessWidget{
           right: 0,
           left: 0,
           child: Container(
-            height: 300,
+            height: 250,
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topLeft,
@@ -43,15 +43,16 @@ class SignupScreeen extends StatelessWidget{
               borderRadius:  BorderRadius.vertical(bottom: Radius.circular(50)),
             ),
             child: Container(
-              padding: EdgeInsets.only(top: 90, left: 20),
+              padding: EdgeInsets.only(top: 30),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Center(
                     child: Image.asset(
                       'assets/images/logo2.png',
-                      width: MediaQuery.of(context).size.width * 0.5,
-                      height: 90,
+                      width: 150,
+                      height: 150,
+                      fit:  BoxFit.fitWidth,
                     ),
                   ),
                 ],
@@ -60,15 +61,15 @@ class SignupScreeen extends StatelessWidget{
           ),
         ),
             AnimatedPositioned(
-              top: 200,
-              left: 40,
+              top: 150,
+              left: 20,
               duration:Duration(milliseconds: 700),
               curve: Curves.bounceInOut,
               child: AnimatedContainer(
                   duration: Duration(milliseconds: 700),
                   curve: Curves.bounceInOut,
-                  height: 700 ,
-                  width: MediaQuery.of(context).size.width - 80,
+                  height: 500 ,
+                  width: MediaQuery.of(context).size.width - 40,
                   decoration: BoxDecoration(
                     color: white,
                     borderRadius: BorderRadius.circular(15),
@@ -82,7 +83,7 @@ class SignupScreeen extends StatelessWidget{
              child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
     child: Padding(
-    padding: const EdgeInsets.all(20.0),
+    padding: const EdgeInsets.all(8.0),
     child: Form(
     key: formKey,
     child: Column(
@@ -92,7 +93,7 @@ class SignupScreeen extends StatelessWidget{
       Center(
         child: ShaderMask(
             shaderCallback: (rect) => const LinearGradient(
-                colors: [Green1,Green2 ],).createShader(rect),
+                colors: [defaultGreen,defaultGreen3 ],).createShader(rect),
             child:  Text('Create Account',
                 style:  GoogleFonts.dancingScript(
                   textStyle: const TextStyle(
@@ -104,7 +105,7 @@ class SignupScreeen extends StatelessWidget{
             ),
         ),
       ),
-      const SizedBox(height: 35.0,),
+      const SizedBox(height: 30.0,),
       defaultTextForm(
           controller:nameController,
           type: TextInputType.text,
@@ -137,7 +138,7 @@ class SignupScreeen extends StatelessWidget{
           controller:emailController,
           type: TextInputType.emailAddress,
           autoValidateMode: AutovalidateMode.onUserInteraction,
-          label: 'Email Address',
+          label: 'Email ',
           labelStyle: const TextStyle(color: grey,),
           prefix: const Icon(Icons.mail_outline_outlined,
               color: defaultGreen,),
@@ -165,7 +166,7 @@ class SignupScreeen extends StatelessWidget{
           controller:phoneController,
           type: TextInputType.number,
           autoValidateMode: AutovalidateMode.onUserInteraction,
-          label: 'Phone Number',
+          label: 'Phone',
           labelStyle: const TextStyle(color: grey,),
           prefix: const Icon(Icons.phone_android_outlined,
               color: defaultGreen,),
@@ -261,7 +262,7 @@ class SignupScreeen extends StatelessWidget{
       defaultTextForm(
           controller:confirmPassController,
           type: TextInputType.visiblePassword,
-          label: 'Confirm Password',
+          label: 'Confirm Pass',
           labelStyle: const TextStyle(color: grey,),
           maxLines: 1,
           prefix: const Icon(Icons.key_outlined,
@@ -323,7 +324,7 @@ class SignupScreeen extends StatelessWidget{
               Text('Already have an account ? ',
                 style:  GoogleFonts.abel(
                   textStyle: const TextStyle(
-                    fontSize: 18.0,
+                    fontSize: 14.0,
                     fontWeight: FontWeight.bold,
                     color: grey,
                   ),
@@ -334,7 +335,7 @@ class SignupScreeen extends StatelessWidget{
                 child: Text('Sign In',
                   style:  GoogleFonts.abel(
                     textStyle: const TextStyle(
-                      fontSize: 18.0,
+                      fontSize: 14.0,
                       fontWeight: FontWeight.bold,
                       color: black54,
                     ),
