@@ -38,11 +38,14 @@ class reset_pass extends StatelessWidget {
               children: [
                 backCircle(),
                 Center(
-                  child: Image.asset(
-                    'assets/images/logo2.png',
-                    width: 170,
-                    height: 100,
-                    fit:  BoxFit.fitWidth,
+                  child: Hero(
+                    tag: "logo2",
+                    child: Image.asset(
+                      'assets/images/logo2.png',
+                      width: 170,
+                      height: 100,
+                      fit:  BoxFit.fitWidth,
+                    ),
                   ),
                 ),
               ],

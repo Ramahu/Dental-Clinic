@@ -47,11 +47,14 @@ class SigninScreeen extends StatelessWidget{
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Center(
-                          child: Image.asset(
-                            'assets/images/logo2.png',
-                            width: 150,
-                            height: 100,
-                            fit:  BoxFit.fitWidth,
+                          child: Hero(
+                            tag: "logo2",
+                            child: Image.asset(
+                              'assets/images/logo2.png',
+                              width: 150,
+                              height: 100,
+                              fit:  BoxFit.fitWidth,
+                            ),
                           ),
                         ),
                       ],

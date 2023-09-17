@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,7 +22,7 @@ Widget defaultBottom({
   child: MaterialButton(
     onPressed: function,
     child: Text(text,
-    style: const TextStyle(color: Colors.white,
+    style: const TextStyle(color: white,
     fontSize: 16.0)
     ),
   ),
@@ -114,7 +115,7 @@ Widget defaultTextForm({
       labelStyle: labelStyle,
       prefixIcon: prefix,
       suffixIcon: IconButton(
-        icon: Icon(suffix, color: const Color(0xFF96D9DC),),
+        icon: Icon(suffix, color: defaultGreen,),
         onPressed: suffixPressed,),
       enabledBorder:enableBorder,
   focusedBorder: focusedBorder,
@@ -180,7 +181,7 @@ Widget defaultImagePicker({
   ),
   CircleAvatar(
     radius: 18.0,
-    backgroundColor: Colors.indigoAccent,
+    backgroundColor: indigoAccent,
     child: IconButton(
       icon: const Icon(Icons.camera_alt_outlined,size: 20.0,),
       onPressed: function,
@@ -206,7 +207,7 @@ Widget defaultImagePicker({
         actions: [
           TextButton(
             onPressed: (){Get.back();},
-            child: const Text('NO', style: TextStyle(color: Colors.red,
+            child: const Text('NO', style: TextStyle(color: red,
               fontWeight:FontWeight.bold,),),
           ),
           TextButton(
@@ -249,8 +250,9 @@ child: Column(
     const SizedBox(height: 50.0,),
     Image.asset(
       url,
-      width: 260,
-      height: 190,
+      width: 250,
+      height: 200,
+      fit: BoxFit.fitWidth,
     ),
     const SizedBox(height: 30.0,),
     Text(title,
@@ -258,16 +260,16 @@ child: Column(
         textStyle: const TextStyle(
           fontSize: 30.0,
           fontWeight: FontWeight.bold,
-          color: Colors.black54,
+          color: black54,
         ),
       ),),
-    const SizedBox(height: 20.0,),
+    const SizedBox(height: 25.0,),
     Text(about,
       maxLines: null,
       style: GoogleFonts.abel(
         textStyle: const TextStyle(
           fontSize: 18.0,
-          color: Colors.black54,
+          color: black54,
         ),
       ),
     ),
