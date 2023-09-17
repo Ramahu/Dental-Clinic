@@ -11,7 +11,7 @@ import '../shared/components/constants.dart';
 
 class DoctorProfile extends StatelessWidget{
   final DoctorModel? doctor;
-      DoctorProfile({Key? key,  required this.doctor}) : super(key: key);
+      DoctorProfile({Key? key, required this.doctor}) : super(key: key);
   DoctorController doctorController= Get.put(DoctorController());
 
   @override
@@ -21,13 +21,8 @@ class DoctorProfile extends StatelessWidget{
        physics: const BouncingScrollPhysics(),
        child: Container(
          width: double.infinity,
-         decoration: BoxDecoration(
-           image: DecorationImage(image:NetworkImage('${doctor?.image}',
-    ),
-           alignment: Alignment.topCenter,
-             fit: BoxFit.fitWidth,
-           ),
-           gradient: const LinearGradient(
+         decoration: const BoxDecoration(
+           gradient:  LinearGradient(
              begin: Alignment.topLeft,
              end: Alignment.bottomRight,
              colors: [orange1,orange2],
@@ -40,11 +35,7 @@ class DoctorProfile extends StatelessWidget{
     children: [
       Padding(
         padding: const EdgeInsets.all(10.0),
-        child: Column(
-          children: [
-            backCircle(),
-          ],
-        ),
+        child: backCircle(),
       ),
       SizedBox(height: MediaQuery.of(context).size.height*0.5,),
       AnimatedContainer(
@@ -129,6 +120,23 @@ class DoctorProfile extends StatelessWidget{
       ),
              ],
         ),
+             Positioned(
+               top:MediaQuery.of(context).size.height*0.15,
+               left: 80,
+               child: Container(
+                 //height: 200,
+                 width: MediaQuery.of(context).size.width - 160,
+                 child:  Hero(
+                   tag: 'doctor ${doctor?.doctorId}',
+                   child: Image( image:
+                   NetworkImage(
+                    '${doctor?.image}'
+                   ),
+                     height: 300,
+                     fit: BoxFit.fitHeight,),
+                 ),
+               ),
+             ),
              Positioned(
                top:MediaQuery.of(context).size.height*0.59,
                left: 80,

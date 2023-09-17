@@ -68,14 +68,14 @@ class DoctorController extends GetxController {
            message: const Text(' Add rating to the doctor , Tap a star to set your rating. ' ,
                style: TextStyle(
                  fontSize: 16.0,
-                 color:Colors.grey, )
+                 color: grey, )
            ),
            submitButtonText: 'Submit',
            onSubmitted: (response){
            rating.value = response.rating;
            },
          submitButtonTextStyle: const TextStyle(
-           color:Colors.indigoAccent,
+           color:indigoAccent,
            fontSize: 18.0,) ,
            enableComment: false,
        ),

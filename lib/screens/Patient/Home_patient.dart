@@ -223,7 +223,7 @@ class PatientHome extends StatelessWidget {
             const SizedBox(height: 8.0,),
             Container(
               padding:  const EdgeInsets.only(left: 7.0, right: 7.0),
-              height: 100,
+              height: 50,
               child: Obx( () {
                 if (departmentController.isLoading.isTrue) {
                   return  Center(
@@ -247,13 +247,14 @@ class PatientHome extends StatelessWidget {
               return ListView.separated(
                 physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) =>  buildDepartment(departmentController.DepartmentList[index]),
+                itemBuilder: (context, index) =>  buildDepartment(departmentController.DepartmentList[index],
+                    departmentController.DepartmentList[index].id),
                 separatorBuilder: (context, index) => const SizedBox(width: 7.0,),
                 itemCount: departmentController.DepartmentList.length,
               );
               }),
             ),
-            const SizedBox(height: 10.0,),
+            const SizedBox(height: 20.0,),
              Padding(
               padding: const EdgeInsets.all(15.0),
               child:  Text("art".tr,
@@ -275,7 +276,6 @@ class PatientHome extends StatelessWidget {
                            return DecoratedBox(
                              decoration: BoxDecoration(
                                color:   defaultGreen,
-                               //color: index.isEven ? Green1 : Green2,
                                borderRadius: BorderRadiusDirectional.circular(10.0),
                              ),
                            );
@@ -295,7 +295,7 @@ class PatientHome extends StatelessWidget {
             );
                  }),
                ),
-            const SizedBox(height: 10.0,),
+            const SizedBox(height: 20.0,),
              Padding(
               padding: const EdgeInsets.all(15.0),
               child:  Text("dr".tr,
@@ -347,7 +347,7 @@ class PatientHome extends StatelessWidget {
       ),
     );
   }
-  buildDepartment(DepartmentModel? department) => InkWell(
+  buildDepartment(DepartmentModel? department , int? index ) => InkWell(
   onTap: (){
     Get.to( DepDoc( department: department,),);
   },
@@ -355,15 +355,22 @@ class PatientHome extends StatelessWidget {
     child: Neumorphic(
       style: NeumorphicStyle(
         shape: NeumorphicShape.concave,
-        boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(20)),
+        boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(30)),
         depth: 8,
         lightSource: LightSource.topLeft,
-        color: white,
+       // color: index!.isEven ? orange1 : blueAccent,
       ),
   child: Container(
     padding: const EdgeInsets.all(8.0),
- height: 80,
-      width: 110,
+    height: 50,
+    width: 110,
+    decoration:  BoxDecoration(
+      gradient:  LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: index!.isEven ?  [orange1,orange2] : [indigoAccent,white],
+      ),
+    ),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -373,9 +380,9 @@ class PatientHome extends StatelessWidget {
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
       style:const TextStyle(
-        fontSize: 12.0,
+        fontSize: 16.0,
         fontWeight: FontWeight.bold,
-      color: black54,)
+      color: white,)
       ,),
         const SizedBox(height: 5.0,),
     ],
@@ -433,8 +440,7 @@ class PatientHome extends StatelessWidget {
        ),
   );
 
-  Widget buildDocItem(BuildContext context , DoctorModel ? doctor) =>
-      InkWell(
+  Widget buildDocItem(BuildContext context , DoctorModel ? doctor) => InkWell(
         onTap: (){
           Get.to( DoctorProfile( doctor: doctor,),);
         },
@@ -462,9 +468,12 @@ class PatientHome extends StatelessWidget {
                     borderRadius: BorderRadiusDirectional.circular(60.0),
                   ),
                   clipBehavior: Clip.antiAliasWithSaveLayer,
-                  child:Image( image:
-                  NetworkImage('${doctor?.image}'),
-                    fit: BoxFit.cover,)
+                  child:Hero(
+                    tag: 'doctor ${doctor?.doctorId}',
+                    child: Image( image:
+                    NetworkImage('${doctor?.image}'),
+                      fit: BoxFit.cover,),
+                  )
               ),
 
               const SizedBox(width: 15.0,),

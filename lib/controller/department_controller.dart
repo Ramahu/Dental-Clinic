@@ -8,7 +8,20 @@ import '../shared/local/cache_helper.dart';
 
 class DepartmentController extends GetxController {
 
-  List<DepartmentModel> DepartmentList =[];
+  List<DepartmentModel> DepartmentList =[
+    // DepartmentModel(
+    //   speciality: 'dental',
+    //   id: 0,
+    // ),
+    // DepartmentModel(
+    //   speciality: 'cosmetic',
+    //   id: 1,
+    // ),
+    // DepartmentModel(
+    //   speciality: 'dental',
+    //   id: 2,
+    // ),
+  ];
   var isLoading = true.obs;
 
   var selectedOpenTime = DateTime.now().obs;

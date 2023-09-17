@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:rama/model/doctor_model.dart';
 import 'package:rama/screens/Admin/home_admin.dart';
 import 'package:rama/screens/Doctor/doctor_layout.dart';
 import 'package:rama/screens/Patient/Patient_layout.dart';
@@ -45,6 +46,12 @@ class MyApp extends StatelessWidget {
 
     MyLocalController controller = Get.put(MyLocalController());
 
+    DoctorModel doctor = DoctorModel(doctorId: 1, departmentId: 1,
+        name: "Rama Alhussin", description:'rama is a doctor for dental ....',
+      speciality: 'dental' , phone: '09887644442' ,
+      //image:
+    );
+
 
     // if(token != null)
     // {
@@ -70,7 +77,7 @@ class MyApp extends StatelessWidget {
       locale: controller.initialLang,
       translations: MyLocale(),
       debugShowCheckedModeBanner: false,
-      home:  onboarding(),
+      home: onboarding(),
 
 
 
