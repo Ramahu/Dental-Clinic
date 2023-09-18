@@ -65,6 +65,7 @@ dependencies:
   fluentui_system_icons: ^1.1.215
   date_picker_timeline:
   time_slot:
+  datepicker_dropdown: ^0.0.8
 
 
 

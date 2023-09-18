@@ -117,10 +117,11 @@ class AddAppointment extends StatelessWidget{
                     //     ],
                     //   ),
                     // ),
-                        TimesSlotGridViewFromInterval(
+                  TimesSlotGridViewFromInterval(
                           locale: "en",
                           initTime: DateTime.now(),
                           selectedColor: indigoAccent,
+                          unSelectedColor: white,
                           crossAxisCount: 3,
                           timeSlotInterval: const TimeSlotInterval(
                             start: TimeOfDay(hour: 9, minute: 00),

@@ -1,3 +1,4 @@
+import 'package:datepicker_dropdown/datepicker_dropdown.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -228,6 +229,47 @@ class SignupScreeen extends StatelessWidget{
               borderRadius: BorderRadius.all(Radius.circular(25)),
               borderSide:  BorderSide(color: defaultGreen,),
           ),
+      ),
+      const SizedBox(height: 20.0,),
+      Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: DropdownDatePicker(
+          inputDecoration: InputDecoration(
+              enabledBorder: const  OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(25)),
+                borderSide:  BorderSide(color: defaultGreen,),
+              ),
+            focusedBorder:const OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(25)),
+              borderSide:  BorderSide(color: defaultGreen,),
+            ),
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(25),
+                borderSide:  const BorderSide(color: defaultGreen,),
+              ),
+          ),
+          isDropdownHideUnderline: true,
+          isFormValidator: true,
+          startYear: 1900,
+          endYear: 2023,
+          width: 10,
+          onChangedDay: (value){
+           signupController.selectedDate.update((val) {
+             val = DateTime(val!.year, val.month, int.parse(value.toString()));
+           });
+          },
+          onChangedMonth: (value) {
+            signupController.selectedDate.update((val) {
+              val = DateTime(val!.year, int.parse(value.toString()) ,val.day );
+            });
+          },
+          onChangedYear: (value) {
+            signupController.selectedDate.update((val) {
+              val = DateTime(int.parse(value.toString()), val!.month, val.day);
+            });
+            print( signupController.selectedDate.value);
+          },
+        ),
       ),
       const SizedBox(height: 20.0,),
       defaultTextForm(
