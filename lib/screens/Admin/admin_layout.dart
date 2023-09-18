@@ -1,4 +1,5 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controller/admin/admin_HomeController.dart';
@@ -30,8 +31,9 @@ class AdminLayout extends StatelessWidget{
           bottomNavigationBar: CurvedNavigationBar(
             height: 60.0,
             items: const <Widget>[
-              Icon(Icons.home, size: 30),
-              Icon(Icons.person, size: 30),
+              Icon(FluentIcons.dentist_12_regular ,size: 30),
+              Icon(FluentIcons.people_12_regular ,size: 30),
+              //Icon(Icons.person, size: 30),
               Icon(Icons.list, size: 30),
               Icon(Icons.text_snippet_outlined, size: 30),
             ],

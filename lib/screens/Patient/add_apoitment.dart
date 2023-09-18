@@ -26,7 +26,7 @@ class AddAppointment extends StatelessWidget{
               title:  ShaderMask(
                 shaderCallback: (rect) => const LinearGradient(
                   colors: [Green1,Green2],).createShader(rect),
-                child:  Text('   Dr. ${doctor?.name}',
+                child:  Text(' Dr. ${doctor?.name}',
                   style:  GoogleFonts.dancingScript(
                     textStyle: const TextStyle(
                       fontSize: 20.0,
@@ -45,7 +45,7 @@ class AddAppointment extends StatelessWidget{
                 child: SingleChildScrollView(
                   child: Column(
                       children: [
-                        const SizedBox(height: 20.0,),
+                        const SizedBox(height: 10.0,),
                     // Row(
                     //   children: [
                     //     TextButton.icon(
@@ -77,6 +77,7 @@ class AddAppointment extends StatelessWidget{
                     // ),
                         DatePicker(
                           DateTime.now(),
+                          height: 100,
                           initialSelectedDate: DateTime.now(),
                           selectionColor: indigoAccent,
                           selectedTextColor: white,
@@ -120,7 +121,7 @@ class AddAppointment extends StatelessWidget{
                           locale: "en",
                           initTime: DateTime.now(),
                           selectedColor: indigoAccent,
-                          crossAxisCount: 4,
+                          crossAxisCount: 3,
                           timeSlotInterval: const TimeSlotInterval(
                             start: TimeOfDay(hour: 9, minute: 00),
                             end: TimeOfDay(hour: 21, minute: 0),
@@ -138,7 +139,7 @@ class AddAppointment extends StatelessWidget{
                       width:MediaQuery.of(context).size.width * 0.9,
                       height: 40.0,
                           color1:  indigoAccent,
-                          color2: Green2,
+                          color2: white,
                       function: () {
                         if (formkey.currentState!.validate()) {
                           // DataBaseHelper.addappoitment(

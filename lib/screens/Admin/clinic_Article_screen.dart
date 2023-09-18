@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -29,8 +30,9 @@ class ClinicArticle extends StatelessWidget{
           child:  Text("All Article",
             style:  GoogleFonts.dancingScript(
               textStyle: const TextStyle(
-                fontSize: 18.0,
+                fontSize: 20.0,
                 fontWeight: FontWeight.bold,
+                color: white,
               ),
             ),
           ),
@@ -74,7 +76,7 @@ class ClinicArticle extends StatelessWidget{
         onPressed: (){ Get.to(  AddArticle(),); },
         backgroundColor: defaultGreen ,
         highlightElevation: 70,
-        child: const Icon(Icons.add),
+        child: const Icon(FluentIcons.document_one_page_add_16_regular ,size: 30),
       ),
     );
   }

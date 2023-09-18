@@ -37,7 +37,7 @@ class DoctorProfile extends StatelessWidget{
         padding: const EdgeInsets.all(10.0),
         child: backCircle(),
       ),
-      SizedBox(height: MediaQuery.of(context).size.height*0.5,),
+      SizedBox(height: MediaQuery.of(context).size.height*0.4,),
       AnimatedContainer(
           duration: Duration(milliseconds: 700),
           curve: Curves.bounceInOut,
@@ -49,7 +49,7 @@ class DoctorProfile extends StatelessWidget{
     child: Padding(
              padding: const EdgeInsets.all(20),
              child: Column(
-                 crossAxisAlignment: CrossAxisAlignment.center,
+                 crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(height: 60.0,),
                     Row(
@@ -77,8 +77,28 @@ class DoctorProfile extends StatelessWidget{
 
                       ],
                     ),
+                    const SizedBox(height: 15.0,),
 
-                    const SizedBox(height: 30.0,),
+      TextButton.icon(
+              onPressed: () {
+                doctorController.showRatingDialog();
+              },
+              icon: const Icon(
+                Icons.star,
+                color: yellow,
+                size: 30,
+              ),
+              label: const Text(
+                'Add rating ',
+                style: TextStyle(
+                  color:grey,
+                  fontSize: 15.0,
+                ),
+              ),
+            ),
+
+
+                    const SizedBox(height: 10.0,),
                               Padding(
                                 padding: const EdgeInsets.all(10.0),
                                 child: Column(
@@ -100,18 +120,20 @@ class DoctorProfile extends StatelessWidget{
                                 ),
                               ),
                               const SizedBox(height: 40.0,),
-                    defaultGradientBottom(text: 'Add Appointment' ,
-                                  width: 250.0,
-                                  height: 60.0,
-                        color1: orange1,
-                        color2: orange2,
-                                  function: ()async{
-                                    Get.to( AddAppointment( doctor: doctor,),);
-                                await DataBaseHelper.sendNotification('Hi Dr.${doctor?.name}',
-                                    'user name added a new appointment to you.',
-                                    '1');
-                                  }
-                                  ),
+                    Center(
+                      child: defaultGradientBottom(text: 'Add Appointment' ,
+                                    width: 250.0,
+                                    height: 60.0,
+                          color1: orange1,
+                          color2: orange2,
+                                    function: ()async{
+                                      Get.to( AddAppointment( doctor: doctor,),);
+                                  // await DataBaseHelper.sendNotification('Hi Dr.${doctor?.name}',
+                                  //     'user name added a new appointment to you.',
+                                  //     '1');
+                                    }
+                                    ),
+                    ),
                               const SizedBox(height: 30.0,),
 
                 ],
@@ -121,7 +143,7 @@ class DoctorProfile extends StatelessWidget{
              ],
         ),
              Positioned(
-               top:MediaQuery.of(context).size.height*0.15,
+               top:MediaQuery.of(context).size.height*0.1,
                left: 80,
                child: Container(
                  //height: 200,
@@ -130,19 +152,20 @@ class DoctorProfile extends StatelessWidget{
                    tag: 'doctor ${doctor?.doctorId}',
                    child: Image( image:
                    NetworkImage(
-                    '${doctor?.image}'
+                     // '${doctor?.image}'
+                       'https://www.nicepng.com/png/detail/7-74994_free-png-doctor-png-images-transparent-doctor-images.png'
                    ),
-                     height: 300,
+                     height: 280,
                      fit: BoxFit.fitHeight,),
                  ),
                ),
              ),
              Positioned(
-               top:MediaQuery.of(context).size.height*0.59,
-               left: 80,
+               top:MediaQuery.of(context).size.height*0.47,
+               left: 50,
                child: Container(
                  height: 60,
-                 width: MediaQuery.of(context).size.width - 160,
+                 width: MediaQuery.of(context).size.width - 100,
                  decoration:  BoxDecoration(
                    boxShadow: [
                      BoxShadow(
@@ -159,11 +182,9 @@ class DoctorProfile extends StatelessWidget{
                  ),
                  child: Center(
                    child: Text(' Dr. ${doctor?.name}',
-                     maxLines: 1,
-                     overflow: TextOverflow.ellipsis,
                      style: GoogleFonts.robotoSlab(
                        textStyle:const TextStyle(
-                       fontSize: 25.0,
+                       fontSize: 20.0,
                        fontWeight: FontWeight.bold,
                      color: white)
                      ),

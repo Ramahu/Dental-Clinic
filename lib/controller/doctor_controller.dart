@@ -9,7 +9,13 @@ import '../shared/local/cache_helper.dart';
 
 class DoctorController extends GetxController {
 
-  List<DoctorModel> DoctorList =[];
+  List<DoctorModel> DoctorList =[
+   DoctorModel(doctorId: 1, departmentId: 1,
+    name: "Rama Alhussin", description:'rama is a doctor for dental ....',
+    speciality: 'dental' , phone: '09887644442' ,
+    //image:'',
+  ),
+  ];
   var isLoading = true.obs;
   PickedFile? _pickedFile;
   PickedFile? get pickedFile => _pickedFile;
@@ -59,16 +65,21 @@ class DoctorController extends GetxController {
 
 
   showRatingDialog(){
-     Get.dialog(Padding(
-       padding: const EdgeInsets.all(10.0),
-       child: RatingDialog(
-         starColor: Colors.yellow,
+     Get.dialog( RatingDialog(
+         starColor: yellow,
            title: const Text(' Rating Dialog ',
            textAlign: TextAlign.center,),
-           message: const Text(' Add rating to the doctor , Tap a star to set your rating. ' ,
+           message: const Text(' Add rating to the doctor , Tap on a star to set your rating. ' ,
                style: TextStyle(
-                 fontSize: 16.0,
-                 color: grey, )
+                 fontSize: 15.0,
+                 color: grey, ),
+             textAlign: TextAlign.center,
+           ),
+           image: Image.asset(
+             'assets/images/logo2.png',
+             width: 100,
+             height: 110,
+             fit:  BoxFit.fitWidth,
            ),
            submitButtonText: 'Submit',
            onSubmitted: (response){
@@ -79,7 +90,6 @@ class DoctorController extends GetxController {
            fontSize: 18.0,) ,
            enableComment: false,
        ),
-     ),
      );
    }
 

@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -29,13 +30,14 @@ class ClinicDep extends StatelessWidget{
           child:  Text("All Department",
             style:  GoogleFonts.dancingScript(
               textStyle: const TextStyle(
-                fontSize: 18.0,
+                fontSize: 20.0,
                 fontWeight: FontWeight.bold,
+                color: white,
               ),
             ),
           ),
         ),
-          backgroundColor: Colors.white ,
+          backgroundColor: white ,
           iconTheme:  const IconThemeData(color: grey),
         ),
     body: Padding(
@@ -77,7 +79,7 @@ class ClinicDep extends StatelessWidget{
   onPressed: (){ Get.to(  AddDepartment(),); },
   backgroundColor: defaultGreen ,
   highlightElevation: 70,
-  child: const Icon(Icons.playlist_add_sharp),
+  child: const Icon(FluentIcons.task_list_add_20_regular ,size: 30),
   ),
   );
 }

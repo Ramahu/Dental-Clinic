@@ -29,6 +29,7 @@ class searchDoctor extends StatelessWidget{
                 textStyle: const TextStyle(
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,
+                  color: white,
                 ),
               ),
             ),

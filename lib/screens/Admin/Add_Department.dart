@@ -23,8 +23,9 @@ class AddDepartment extends StatelessWidget {
           child:  Text("Add Department",
             style:  GoogleFonts.dancingScript(
               textStyle: const TextStyle(
-                fontSize: 18.0,
+                fontSize: 20.0,
                 fontWeight: FontWeight.bold,
+                color: white,
               ),
             ),
           ),

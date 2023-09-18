@@ -30,9 +30,8 @@ class PatientLayout extends StatelessWidget{
         ),
       bottomNavigationBar: CurvedNavigationBar(
         height: 60.0,
-        items:  <Widget>[
+        items: const <Widget>[
           Icon(FluentIcons.dentist_12_regular ,size: 30),
-          //Icon(Icons.home, size: 30),
           Icon(FluentIcons.task_list_square_ltr_16_regular, size: 30),
         ],
         key: bottomNavigationKey,

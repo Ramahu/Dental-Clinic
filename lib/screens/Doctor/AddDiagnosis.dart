@@ -32,8 +32,9 @@ class AddDiagnosis extends StatelessWidget {
           child:  Text( "Add Diagnosis ".tr,
             style:  GoogleFonts.dancingScript(
               textStyle: const TextStyle(
-                fontSize: 18.0,
+                fontSize: 20.0,
                 fontWeight: FontWeight.bold,
+                color: white,
               ),
             ),
           ),

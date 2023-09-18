@@ -24,8 +24,9 @@ class AppointmentPatient extends StatelessWidget {
           child:  Text('All Appointment',
             style:  GoogleFonts.dancingScript(
               textStyle: const TextStyle(
-                fontSize: 18.0,
+                fontSize: 20.0,
                 fontWeight: FontWeight.bold,
+                color: white,
               ),
             ),
           ),

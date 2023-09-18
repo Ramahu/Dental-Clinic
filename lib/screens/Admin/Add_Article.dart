@@ -28,8 +28,9 @@ class AddArticle extends StatelessWidget {
           child:  Text("Add Article",
             style:  GoogleFonts.dancingScript(
               textStyle: const TextStyle(
-                fontSize: 18.0,
+                fontSize: 20.0,
                 fontWeight: FontWeight.bold,
+                color: white,
               ),
             ),
           ),

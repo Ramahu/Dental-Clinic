@@ -34,11 +34,12 @@ class HomeDoctor extends StatelessWidget {
     title: ShaderMask(
     shaderCallback: (rect) => const LinearGradient(
     colors: [Green1,Green2],).createShader(rect),
-    child:  Text('       Smile',
+    child:  Text('    Smile',
     style:  GoogleFonts.dancingScript(
     textStyle: const TextStyle(
-    fontSize: 18.0,
+    fontSize: 22.0,
     fontWeight: FontWeight.bold,
+    color: white,
     ),
     ),
     ),

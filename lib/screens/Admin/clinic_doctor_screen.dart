@@ -1,3 +1,4 @@
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -29,8 +30,9 @@ class Clinic_Doctors extends StatelessWidget {
           child:  Text("All Doctors",
             style:  GoogleFonts.dancingScript(
               textStyle: const TextStyle(
-                fontSize: 18.0,
+                fontSize: 20.0,
                 fontWeight: FontWeight.bold,
+                color: white,
               ),
             ),
           ),
@@ -78,7 +80,7 @@ class Clinic_Doctors extends StatelessWidget {
         onPressed: (){ Get.to(  AddDoctor(),); },
         backgroundColor: defaultGreen ,
         highlightElevation: 70,
-        child: const Icon(Icons.person_add_alt_1_rounded),
+        child: const Icon(FluentIcons.people_add_16_regular ,size: 30),
       ),
     );
   }

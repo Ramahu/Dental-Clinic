@@ -29,9 +29,9 @@ class DepDoc extends StatelessWidget{
           shaderCallback: (rect) => const LinearGradient(
             colors: [Green1,Green2],).createShader(rect),
           child:  Text('${department!.speciality}',
-            style:  GoogleFonts.cookie(
+            style:  GoogleFonts.dancingScript(
               textStyle: const TextStyle(
-                fontSize: 18.0,
+                fontSize: 20.0,
                 fontWeight: FontWeight.bold,
               ),
             ),

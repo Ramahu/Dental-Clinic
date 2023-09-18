@@ -46,11 +46,12 @@ class PatientHome extends StatelessWidget {
           title: ShaderMask(
             shaderCallback: (rect) => const LinearGradient(
         colors: [Green1,Green2],).createShader(rect),
-      child:  Text('       Smile',
+      child:  Text('    Smile',
         style:  GoogleFonts.dancingScript(
           textStyle: const TextStyle(
-            fontSize: 20.0,
+            fontSize: 22.0,
             fontWeight: FontWeight.bold,
+            color: white,
           ),
         ),
       ),
@@ -470,7 +471,10 @@ class PatientHome extends StatelessWidget {
                   child:Hero(
                     tag: 'doctor ${doctor?.doctorId}',
                     child: Image( image:
-                    NetworkImage('${doctor?.image}'),
+                    NetworkImage(
+                       // '${doctor?.image}'
+                      'https://www.nicepng.com/png/detail/7-74994_free-png-doctor-png-images-transparent-doctor-images.png'
+                    ),
                       fit: BoxFit.cover,),
                   )
               ),

@@ -26,8 +26,9 @@ class Clinic_Patient extends StatelessWidget {
           child:  Text( "Al patients",
             style:  GoogleFonts.dancingScript(
               textStyle: const TextStyle(
-                fontSize: 18.0,
+                fontSize: 20.0,
                 fontWeight: FontWeight.bold,
+                color: white,
               ),
             ),
           ),

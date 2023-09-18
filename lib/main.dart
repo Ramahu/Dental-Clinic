@@ -78,8 +78,7 @@ class MyApp extends StatelessWidget {
       locale: controller.initialLang,
       translations: MyLocale(),
       debugShowCheckedModeBanner: false,
-      home: AddAppointment(doctor: doctor,),
-      //onboarding(),
+      home: onboarding(),
 
 
 
