@@ -11,7 +11,9 @@ class PatientAppointmentController extends GetxController {
   List<AppointmentModel> appointmentList =[];
   var isLoading = true.obs;
   var appTime = DateTime.now().obs;
+  var appoTime = DateTime.now().obs;
   var appDate = DateTime.now().obs;
+  var appoDate = DateTime.now().obs;
  // String  token = CacheHelper.getData(key: "token");
 
 

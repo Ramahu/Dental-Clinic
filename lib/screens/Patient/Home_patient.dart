@@ -51,7 +51,6 @@ class PatientHome extends StatelessWidget {
           textStyle: const TextStyle(
             fontSize: 20.0,
             fontWeight: FontWeight.bold,
-            color: grey,
           ),
         ),
       ),

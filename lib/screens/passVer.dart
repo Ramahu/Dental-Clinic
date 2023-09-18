@@ -90,7 +90,6 @@ class forget_pass_ver extends StatelessWidget {
                         textStyle: const TextStyle(
                           fontSize: 30.0,
                           fontWeight: FontWeight.bold,
-                          color: grey,
                         ),
                       ),
                     ),

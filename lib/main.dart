@@ -6,6 +6,7 @@ import 'package:rama/model/doctor_model.dart';
 import 'package:rama/screens/Admin/home_admin.dart';
 import 'package:rama/screens/Doctor/doctor_layout.dart';
 import 'package:rama/screens/Patient/Patient_layout.dart';
+import 'package:rama/screens/Patient/add_apoitment.dart';
 import 'package:rama/screens/Signin.dart';
 import 'package:rama/screens/onboarding.dart';
 import 'package:rama/shared/components/constants.dart';
@@ -77,7 +78,8 @@ class MyApp extends StatelessWidget {
       locale: controller.initialLang,
       translations: MyLocale(),
       debugShowCheckedModeBanner: false,
-      home: onboarding(),
+      home: AddAppointment(doctor: doctor,),
+      //onboarding(),
 
 
 

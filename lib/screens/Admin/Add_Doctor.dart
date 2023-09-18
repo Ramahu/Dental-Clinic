@@ -35,7 +35,6 @@ class  AddDoctor extends StatelessWidget {
               textStyle: const TextStyle(
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold,
-                color: grey,
               ),
             ),
           ),
