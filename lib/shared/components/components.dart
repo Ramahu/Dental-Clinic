@@ -1,6 +1,8 @@
 import 'dart:io';
+import 'package:datepicker_dropdown/datepicker_dropdown.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
@@ -11,6 +13,37 @@ import '../../model/appotmentmodel.dart';
 import '../../model/doctor_model.dart';
 import '../../model/patient_model.dart';
 import 'constants.dart';
+
+Widget defaultLogo() => Center(
+child: Hero(
+tag: "logo2",
+child: Image.asset(
+'assets/images/logo2.png',
+width: 150,
+height: 150,
+fit:  BoxFit.fitWidth,
+),
+),
+);
+
+Widget defaultTitle({
+  required String text,
+  required double fontSize,
+  required Color color1,
+  required Color color2,
+}) => ShaderMask(
+shaderCallback: (rect) =>  LinearGradient(
+colors: [color1,color2],).createShader(rect),
+child:  Text(text,
+style:  GoogleFonts.dancingScript(
+textStyle:  TextStyle(
+fontSize: fontSize,
+fontWeight: FontWeight.bold,
+color: white,
+),
+),
+),
+);
 
 
 Widget defaultBottom({
@@ -157,6 +190,34 @@ border: border,
   enabledBorder:enableBorder,
   focusedBorder: focusedBorder,
 ),
+),
+);
+
+
+Widget defaultDropdownDate({
+  required int? endYear,
+  required void Function(String?)? onChangedDay,
+  required void Function(String?)? onChangedMonth,
+  required void Function(String?)? onChangedYear,
+  InputBorder? border,
+  InputBorder? focusedBorder,
+  InputBorder? enableBorder,
+})=> Padding(
+padding: const EdgeInsets.all(20.0),
+child: DropdownDatePicker(
+inputDecoration: InputDecoration(
+enabledBorder: enableBorder,
+focusedBorder: focusedBorder,
+border: border,
+),
+isDropdownHideUnderline: true,
+isFormValidator: true,
+startYear: 1900,
+endYear: endYear,
+width: 10,
+onChangedDay: onChangedDay,
+onChangedMonth: onChangedMonth,
+onChangedYear: onChangedYear,
 ),
 );
 
@@ -309,7 +370,18 @@ Widget backCircle() => Padding(
   ),
 );
 
-//Doctor
+Widget loadingCircle({
+required Color color,
+}) => SpinKitFadingCircle(
+itemBuilder: (BuildContext context, int index) {
+return DecoratedBox(
+decoration: BoxDecoration(
+color: color,
+borderRadius: BorderRadiusDirectional.circular(10.0),
+),
+);
+},
+);
 
 Widget doctorItem({
   required DoctorModel ? doctor,

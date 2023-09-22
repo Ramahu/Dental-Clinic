@@ -48,17 +48,7 @@ class SignupScreeen extends StatelessWidget{
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Center(
-                    child: Hero(
-                      tag: "logo2",
-                      child: Image.asset(
-                        'assets/images/logo2.png',
-                        width: 150,
-                        height: 150,
-                        fit:  BoxFit.fitWidth,
-                      ),
-                    ),
-                  ),
+                  defaultLogo(),
                 ],
               ),
             ),
@@ -95,18 +85,11 @@ class SignupScreeen extends StatelessWidget{
     children: [
     const SizedBox(height: 10.0,),
       Center(
-        child: ShaderMask(
-            shaderCallback: (rect) => const LinearGradient(
-                colors: [defaultGreen,defaultGreen3 ],).createShader(rect),
-            child:  Text('Create Account',
-                style:  GoogleFonts.dancingScript(
-                  textStyle: const TextStyle(
-                    fontSize: 30.0,
-                    fontWeight: FontWeight.bold,
-                    color: white,
-                  ),
-                ),
-            ),
+        child: defaultTitle(
+          text: 'Create Account',
+          fontSize: 30.0,
+          color1: defaultGreen,
+          color2: defaultGreen3,
         ),
       ),
       const SizedBox(height: 30.0,),
@@ -232,43 +215,47 @@ class SignupScreeen extends StatelessWidget{
       ),
       const SizedBox(height: 20.0,),
       Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: DropdownDatePicker(
-          inputDecoration: InputDecoration(
-              enabledBorder: const  OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(25)),
-                borderSide:  BorderSide(color: defaultGreen,),
-              ),
-            focusedBorder:const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(25)),
-              borderSide:  BorderSide(color: defaultGreen,),
+        padding: const EdgeInsets.only(left: 15.0),
+        child: Text('Birthdate',
+          style: GoogleFonts.abel(
+            textStyle: const TextStyle(
+              fontSize: 16.0,
+              fontWeight: FontWeight.bold,
+              color: grey,
             ),
-              border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(25),
-                borderSide:  const BorderSide(color: defaultGreen,),
-              ),
           ),
-          isDropdownHideUnderline: true,
-          isFormValidator: true,
-          startYear: 1900,
-          endYear: 2023,
-          width: 10,
-          onChangedDay: (value){
-           signupController.selectedDate.update((val) {
-             val = DateTime(val!.year, val.month, int.parse(value.toString()));
-           });
-          },
-          onChangedMonth: (value) {
-            signupController.selectedDate.update((val) {
-              val = DateTime(val!.year, int.parse(value.toString()) ,val.day );
-            });
-          },
-          onChangedYear: (value) {
-            signupController.selectedDate.update((val) {
-              val = DateTime(int.parse(value.toString()), val!.month, val.day);
-            });
-            print( signupController.selectedDate.value);
-          },
+        ),
+      ),
+      const SizedBox(height: 5.0,),
+      defaultDropdownDate(
+        endYear: 2023,
+        onChangedDay: (value){
+    signupController.selectedDate.update((val) {
+    val = DateTime(val!.year, val.month, int.parse(value.toString()));
+    });
+    },
+    onChangedMonth: (value) {
+    signupController.selectedDate.update((val) {
+    val = DateTime(val!.year, int.parse(value.toString()) ,val.day );
+    });
+    },
+    onChangedYear: (value) {
+      signupController.selectedDate.update((val) {
+        val = DateTime(int.parse(value.toString()), val!.month, val.day);
+      });
+      print( signupController.selectedDate.value);
+    },
+        enableBorder: const  OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(25)),
+          borderSide:  BorderSide(color: defaultGreen,),
+        ),
+        focusedBorder:const OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(25)),
+          borderSide:  BorderSide(color: defaultGreen,),
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(25),
+          borderSide:  const BorderSide(color: defaultGreen,),
         ),
       ),
       const SizedBox(height: 20.0,),

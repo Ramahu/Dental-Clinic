@@ -12,6 +12,7 @@ import '../../controller/doctor_controller.dart';
 import '../../locale/locale_controller.dart';
 import '../../model/BarChart_model.dart';
 import '../../model/PieChart_model.dart';
+import '../../shared/components/components.dart';
 import '../../shared/components/constants.dart';
 import '../Signin.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
@@ -68,18 +69,11 @@ class HomeAdmin extends StatelessWidget {
     appBarColor: white,
     isTitleCenter: false,
     appBarPadding: const EdgeInsets.all(10),
-    title: ShaderMask(
-    shaderCallback: (rect) => const LinearGradient(
-    colors: [Green1,Green2],).createShader(rect),
-    child:  Text('    Smile',
-    style:  GoogleFonts.dancingScript(
-    textStyle: const TextStyle(
-    fontSize: 22.0,
-    fontWeight: FontWeight.bold,
-    color: white,
-    ),
-    ),
-    ),
+    title: defaultTitle(
+      text:'    Smile',
+      fontSize: 22.0,
+      color1: Green1,
+      color2: Green2,
     ),
     drawerIconColor: grey,
     trailing:

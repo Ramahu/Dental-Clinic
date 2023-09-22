@@ -27,18 +27,11 @@ class  AddDoctor extends StatelessWidget {
     Get.lazyPut(()=>DoctorController());
     return Scaffold(
       appBar: AppBar(
-        title:  ShaderMask(
-          shaderCallback: (rect) => const LinearGradient(
-            colors: [Green1,Green2],).createShader(rect),
-          child:  Text("Add Doctor",
-            style:  GoogleFonts.dancingScript(
-              textStyle: const TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-                color: white,
-              ),
-            ),
-          ),
+        title:  defaultTitle(
+          text:"Add Doctor",
+          fontSize: 20.0,
+          color1: Green1,
+          color2: Green2,
         ),
         backgroundColor: white ,
         iconTheme:  const IconThemeData(color: grey),

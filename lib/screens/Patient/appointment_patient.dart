@@ -18,18 +18,11 @@ class AppointmentPatient extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:  ShaderMask(
-          shaderCallback: (rect) => const LinearGradient(
-            colors: [Green1,Green2],).createShader(rect),
-          child:  Text('All Appointment',
-            style:  GoogleFonts.dancingScript(
-              textStyle: const TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-                color: white,
-              ),
-            ),
-          ),
+        title:  defaultTitle(
+          text:'All Appointment',
+          fontSize: 20.0,
+          color1: defaultGreen,
+          color2: defaultGreen3,
         ),
         backgroundColor: white,
       ),
@@ -39,16 +32,7 @@ class AppointmentPatient extends StatelessWidget {
         Obx( () {
           if (appController.isLoading.isTrue) {
             return Center(
-              child: SpinKitFadingCircle(
-                itemBuilder: (BuildContext context, int index) {
-                  return DecoratedBox(
-                    decoration: BoxDecoration(
-                      color:   defaultGreen,
-                      borderRadius: BorderRadiusDirectional.circular(10.0),
-                    ),
-                  );
-                },
-              ),
+              child: loadingCircle(color: defaultGreen),
             );
           }
           else if(appController.appointmentList.isEmpty)
@@ -72,5 +56,4 @@ class AppointmentPatient extends StatelessWidget {
       ),
     );
   }
-
 }

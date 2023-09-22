@@ -1,7 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slider_drawer/flutter_slider_drawer.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:neumorphic_ui/neumorphic_ui.dart';
@@ -12,7 +11,6 @@ import '../../controller/doctor_controller.dart';
 import '../../locale/locale_controller.dart';
 import '../../model/Article_model.dart';
 import '../../model/department_model.dart';
-import '../../model/doctor_model.dart';
 import '../../shared/components/components.dart';
 import '../../shared/components/constants.dart';
 import '../Doctor_profile.dart';
@@ -44,19 +42,12 @@ class PatientHome extends StatelessWidget {
           appBarColor: white,
           isTitleCenter: false,
           appBarPadding: const EdgeInsets.only(top: 30,bottom: 10),
-          title: ShaderMask(
-            shaderCallback: (rect) => const LinearGradient(
-        colors: [Green1,Green2],).createShader(rect),
-      child:  Text('    Smile',
-        style:  GoogleFonts.dancingScript(
-          textStyle: const TextStyle(
+          title: defaultTitle(
+            text: '    Smile',
             fontSize: 22.0,
-            fontWeight: FontWeight.bold,
-            color: white,
+            color1: defaultGreen,
+            color2: defaultGreen3,
           ),
-        ),
-      ),
-    ),
     drawerIconColor: grey,
     trailing:
     IconButton(onPressed: (){
@@ -228,16 +219,7 @@ class PatientHome extends StatelessWidget {
               child: Obx( () {
                 if (departmentController.isLoading.isTrue) {
                   return  Center(
-                    child:  SpinKitFadingCircle(
-                      itemBuilder: (BuildContext context, int index) {
-                        return DecoratedBox(
-                          decoration: BoxDecoration(
-                            color:   defaultGreen,
-                            borderRadius: BorderRadiusDirectional.circular(10.0),
-                          ),
-                        );
-                      },
-                    ),
+                    child: loadingCircle(color: defaultGreen),
                   );
                 }
                 else if (departmentController.DepartmentList.isEmpty) {
@@ -272,16 +254,7 @@ class PatientHome extends StatelessWidget {
                  child: Obx( () {
                    if (articleController.isLoading.isTrue) {
                      return  Center(
-                       child: SpinKitFadingCircle(
-                         itemBuilder: (BuildContext context, int index) {
-                           return DecoratedBox(
-                             decoration: BoxDecoration(
-                               color:   defaultGreen,
-                               borderRadius: BorderRadiusDirectional.circular(10.0),
-                             ),
-                           );
-                         },
-                       ),
+                       child: loadingCircle(color: defaultGreen),
                      );
                    }
                    else if (articleController.ArticleList.isEmpty){
@@ -312,16 +285,7 @@ class PatientHome extends StatelessWidget {
               child:  Obx( () {
                 if (doctorController.isLoading.isTrue) {
                   return  Center(
-                    child:  SpinKitFadingCircle(
-                      itemBuilder: (BuildContext context, int index) {
-                        return DecoratedBox(
-                          decoration: BoxDecoration(
-                            color:   defaultGreen,
-                            borderRadius: BorderRadiusDirectional.circular(10.0),
-                          ),
-                        );
-                      },
-                    ),
+                    child: loadingCircle(color: defaultGreen),
                   );
                 }
                 else if(doctorController.DoctorList.isEmpty)
@@ -444,6 +408,5 @@ class PatientHome extends StatelessWidget {
     ),
        ),
   );
-
 
 }

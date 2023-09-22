@@ -20,18 +20,11 @@ class Clinic_Patient extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:ShaderMask(
-          shaderCallback: (rect) => const LinearGradient(
-            colors: [Green1,Green2],).createShader(rect),
-          child:  Text( "Al patients",
-            style:  GoogleFonts.dancingScript(
-              textStyle: const TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-                color: white,
-              ),
-            ),
-          ),
+        title:defaultTitle(
+          text: "All patients",
+          fontSize: 20.0,
+          color1: Green1,
+          color2: Green2,
         ),
             backgroundColor: white,
       ),
@@ -75,7 +68,6 @@ class Clinic_Patient extends StatelessWidget {
           );
         }),
       ),
-
     );
   }
 }

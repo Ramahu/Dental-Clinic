@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:rama/screens/Doctor/AddDiagnosis.dart';
 import 'package:rama/screens/Doctor/DiagnosisDetails.dart';
 import '../../controller/diagnosis_controller.dart';
@@ -29,18 +27,11 @@ class alldiagnoses extends StatelessWidget {
       appBar: AppBar(
         iconTheme:const IconThemeData(size: null,
           color: defaultGreen,),
-        title: ShaderMask(
-          shaderCallback: (rect) => const LinearGradient(
-            colors: [Green1,Green2],).createShader(rect),
-          child:  Text( "All Diagnosis".tr,
-            style:  GoogleFonts.dancingScript(
-              textStyle: const TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-                color: white,
-              ),
-            ),
-          ),
+        title: defaultTitle(
+          text: "All Diagnosis".tr,
+          fontSize: 20.0,
+          color1: Green1,
+          color2: Green2,
         ),
         backgroundColor: white,
       ),
@@ -49,16 +40,7 @@ class alldiagnoses extends StatelessWidget {
         child: Obx(() {
           if (diagnosisController.isLoading.isTrue) {
             return  Center(
-              child: SpinKitFadingCircle(
-                itemBuilder: (BuildContext context, int index) {
-                  return DecoratedBox(
-                    decoration: BoxDecoration(
-                      color:   defaultGreen,
-                      borderRadius: BorderRadiusDirectional.circular(10.0),
-                    ),
-                  );
-                },
-              ),
+              child: loadingCircle(color: defaultGreen),
             );
           }
           else if (diagnosisController.diagnosisList.isEmpty) {

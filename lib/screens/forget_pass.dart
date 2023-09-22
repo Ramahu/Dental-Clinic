@@ -36,18 +36,7 @@ class forget_pass extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  backCircle(),
-                  Center(
-                    child: Hero(
-                      tag: "logo2",
-                      child: Image.asset(
-                        'assets/images/logo2.png',
-                        width: 170,
-                        height: 100,
-                        fit:  BoxFit.fitWidth,
-                      ),
-                    ),
-                  ),
+                  defaultLogo(),
                 ],
               ),
             ),
@@ -83,18 +72,11 @@ class forget_pass extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         const SizedBox(height: 30.0,),
-                        ShaderMask(
-                          shaderCallback: (rect) => const LinearGradient(
-                            colors: [defaultGreen,defaultGreen3],).createShader(rect),
-                          child:  Text('Forgot Password ?',
-                            style:  GoogleFonts.dancingScript(
-                              textStyle: const TextStyle(
-                                fontSize: 30.0,
-                                fontWeight: FontWeight.bold,
-                                color: white,
-                              ),
-                            ),
-                          ),
+                        defaultTitle(
+                          text: 'Forgot Password ?',
+                          fontSize: 30.0,
+                          color1: defaultGreen,
+                          color2: defaultGreen3,
                         ),
                         const SizedBox(
                                 height: 35,

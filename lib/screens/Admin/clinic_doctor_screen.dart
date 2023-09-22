@@ -1,13 +1,10 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:rama/model/doctor_model.dart';
 import 'package:rama/screens/Admin/Add_Doctor.dart';
 import '../../controller/doctor_controller.dart';
-import '../../model/doctor_model.dart';
 import '../../shared/components/components.dart';
 import '../../shared/components/constants.dart';
 
@@ -24,18 +21,11 @@ class Clinic_Doctors extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:  ShaderMask(
-          shaderCallback: (rect) => const LinearGradient(
-            colors: [Green1,Green2],).createShader(rect),
-          child:  Text("All Doctors",
-            style:  GoogleFonts.dancingScript(
-              textStyle: const TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-                color: white,
-              ),
-            ),
-          ),
+        title:  defaultTitle(
+          text:"All Doctors",
+          fontSize: 20.0,
+          color1: Green1,
+          color2: Green2,
         ),
         backgroundColor: white ,
         iconTheme:  const IconThemeData(color: grey),
@@ -46,16 +36,7 @@ class Clinic_Doctors extends StatelessWidget {
            Obx( () {
              if (doctorController.isLoading.isTrue) {
                return  Center(
-                 child: SpinKitFadingCircle(
-                   itemBuilder: (BuildContext context, int index) {
-                     return DecoratedBox(
-                       decoration: BoxDecoration(
-                         color: defaultGreen,
-                         borderRadius: BorderRadiusDirectional.circular(10.0),
-                       ),
-                     );
-                   },
-                 ),
+                 child:loadingCircle(color: defaultGreen),
                );
              }
              else if(doctorController.DoctorList.isEmpty)

@@ -22,18 +22,11 @@ class AddArticle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:   ShaderMask(
-          shaderCallback: (rect) => const LinearGradient(
-            colors: [Green1,Green2],).createShader(rect),
-          child:  Text("Add Article",
-            style:  GoogleFonts.dancingScript(
-              textStyle: const TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-                color: white,
-              ),
-            ),
-          ),
+        title: defaultTitle(
+          text:"Add Article",
+          fontSize: 20.0,
+          color1: Green1,
+          color2: Green2,
         ),
         backgroundColor: white ,
         iconTheme:  const IconThemeData(color: grey),

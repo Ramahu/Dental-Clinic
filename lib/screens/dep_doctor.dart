@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:rama/screens/Doctor_profile.dart';
 import '../controller/dep_doc_con.dart';
 import '../model/department_model.dart';
-import '../model/doctor_model.dart';
 import '../shared/components/components.dart';
 import '../shared/components/constants.dart';
 
@@ -25,17 +22,11 @@ class DepDoc extends StatelessWidget{
 
     return Scaffold(
       appBar: AppBar(
-        title:   ShaderMask(
-          shaderCallback: (rect) => const LinearGradient(
-            colors: [Green1,Green2],).createShader(rect),
-          child:  Text('${department!.speciality}',
-            style:  GoogleFonts.dancingScript(
-              textStyle: const TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
+        title: defaultTitle(
+          text: '${department!.speciality}',
+          fontSize: 20.0,
+          color1: defaultGreen,
+          color2: defaultGreen3,
         ),
         backgroundColor: white ,
         iconTheme:  const IconThemeData(color: grey),
@@ -46,16 +37,7 @@ class DepDoc extends StatelessWidget{
         Obx( () {
           if (docController.isLoading.isTrue) {
             return  Center(
-              child: SpinKitFadingCircle(
-                itemBuilder: (BuildContext context, int index) {
-                  return DecoratedBox(
-                    decoration: BoxDecoration(
-                      color:   defaultGreen,
-                      borderRadius: BorderRadiusDirectional.circular(10.0),
-                    ),
-                  );
-                },
-              ),
+              child: loadingCircle(color: defaultGreen),
             );
           }
           else if (docController.docList.isEmpty) {
@@ -63,7 +45,6 @@ class DepDoc extends StatelessWidget{
               child: Text('No doctor yet'),
             );
           }
-          // else if (docController.docList[].departmentId == department!.id!) {
             return defaultPull(
               function: handleRefresh,
               list: ListView.separated(
@@ -78,8 +59,6 @@ class DepDoc extends StatelessWidget{
                 itemCount: docController.docList.length,
               ),
             );
-          // }
-          // return Container();
         }
         ),
       ),

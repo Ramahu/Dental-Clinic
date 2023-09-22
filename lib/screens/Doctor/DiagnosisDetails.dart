@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../controller/diagnosis_controller.dart';
 import '../../model/diagnosis_model.dart';
+import '../../shared/components/components.dart';
 import '../../shared/components/constants.dart';
 
 class diagnosisdetails extends StatelessWidget {
@@ -14,21 +15,14 @@ class diagnosisdetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-        appBar:  AppBar(
+        appBar: AppBar(
                 iconTheme:const IconThemeData(size: null,
               color: defaultGreen,),
-                title: ShaderMask(
-                  shaderCallback: (rect) => const LinearGradient(
-                    colors: [Green1,Green2],).createShader(rect),
-                  child:  Text( "Diagnosis Details".tr,
-                    style:  GoogleFonts.dancingScript(
-                      textStyle: const TextStyle(
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
-                        color: white,
-                      ),
-                    ),
-                  ),
+                title:defaultTitle(
+                  text: "Diagnosis Details".tr,
+                  fontSize: 20.0,
+                  color1: Green1,
+                  color2: Green2,
                 ),
                 backgroundColor:white,
               ),

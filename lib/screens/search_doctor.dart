@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rama/screens/Doctor_profile.dart';
@@ -61,16 +60,7 @@ class searchDoctor extends StatelessWidget{
                 child: Obx( () {
                   if (isLoading.isTrue) {
                     return  Center(
-                      child: SpinKitFadingCircle(
-                        itemBuilder: (BuildContext context, int index) {
-                          return DecoratedBox(
-                            decoration: BoxDecoration(
-                              color: defaultGreen,
-                              borderRadius: BorderRadiusDirectional.circular(10.0),
-                            ),
-                          );
-                        },
-                      ),
+                      child: loadingCircle(color: defaultGreen),
                     );
                   }
                   if(searchList.isNotEmpty) {
