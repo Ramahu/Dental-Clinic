@@ -140,7 +140,7 @@ class AddAppointment extends StatelessWidget{
                       width:MediaQuery.of(context).size.width * 0.9,
                       height: 40.0,
                           color1:  indigoAccent,
-                          color2: white,
+                          color2: indigo2,
                       function: () {
                         if (formkey.currentState!.validate()) {
                           // DataBaseHelper.addappoitment(

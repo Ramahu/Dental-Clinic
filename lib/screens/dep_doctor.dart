@@ -67,8 +67,12 @@ class DepDoc extends StatelessWidget{
             return defaultPull(
               function: handleRefresh,
               list: ListView.separated(
-                itemBuilder: (context, index) =>
-                    buildDepItem(context, docController.docList[index]),
+                itemBuilder: (context, index) => doctorItem(
+                  doctor: docController.docList[index],
+                  function:   (){
+                    Get.to( DoctorProfile( doctor: docController.docList[index],),);
+                  },
+                ),
                 separatorBuilder: (context, index) =>
                 const SizedBox(height: 12.0,),
                 itemCount: docController.docList.length,
@@ -81,63 +85,4 @@ class DepDoc extends StatelessWidget{
       ),
     );
   }
-  Widget buildDepItem(BuildContext context , DoctorModel? doctor) => InkWell(
-    onTap: (){
-      Get.to( DoctorProfile( doctor: doctor,),);
-    },
-    highlightColor: grey,
-    child: Container(
-      padding: const EdgeInsets.all(14.0),
-      decoration:  BoxDecoration(
-        borderRadius: BorderRadius.circular(200),
-        color:white,
-        boxShadow: const [
-          BoxShadow(
-            offset: Offset(0,2),
-            blurRadius: 5,
-            color: grey,
-          ),
-        ],
-      ),
-      child: Row(
-        children: [
-          const SizedBox(width: 10.0,),
-          Container(
-              width: 60,
-              height: 60,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadiusDirectional.circular(60.0),
-              ),
-              clipBehavior: Clip.antiAliasWithSaveLayer,
-              child:Image( image:
-              NetworkImage('${doctor?.image}'),
-                fit: BoxFit.cover,)
-          ),
-          const SizedBox(width: 15.0,),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children:  [
-                Text('${doctor!.name}',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style:const TextStyle(
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.bold,)
-                  ,),
-                const SizedBox(height: 3.0,),
-                Text('speciality : ${doctor.speciality}',
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style:const TextStyle(
-                      fontSize: 14.0,
-                      color:grey, )
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    ),
-  );
 }

@@ -4,7 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
+import 'package:neumorphic_ui/neumorphic_ui.dart';
 
+import '../../model/Article_model.dart';
+import '../../model/appotmentmodel.dart';
+import '../../model/doctor_model.dart';
+import '../../model/patient_model.dart';
 import 'constants.dart';
 
 
@@ -220,7 +225,7 @@ Widget defaultImagePicker({
     },
   );
 
- defaultPull({
+Widget defaultPull({
    required function,
    required ListView list,
 }) => LiquidPullToRefresh(
@@ -303,3 +308,189 @@ Widget backCircle() => Padding(
     ),
   ),
 );
+
+//Doctor
+
+Widget doctorItem({
+  required DoctorModel ? doctor,
+  required function,
+}) => InkWell(
+  onTap: function,
+  highlightColor: grey,
+  child: Container(
+    padding: const EdgeInsets.all(14.0),
+    decoration:  BoxDecoration(
+      borderRadius: BorderRadius.circular(200),
+      color: white,
+      boxShadow: const [
+        BoxShadow(
+          offset: Offset(0,2),
+          blurRadius: 5,
+          color: grey,
+        ),
+      ],
+    ),
+    child: Row(
+      children: [
+        const SizedBox(width: 10.0,),
+        Container(
+            width: 60,
+            height: 60,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadiusDirectional.circular(60.0),
+            ),
+            clipBehavior: Clip.antiAliasWithSaveLayer,
+            child:Hero(
+              tag: 'doctor ${doctor?.doctorId}',
+              child: Image( image:
+              NetworkImage(
+                // '${doctor?.image}'
+                  'https://www.nicepng.com/png/detail/7-74994_free-png-doctor-png-images-transparent-doctor-images.png'
+              ),
+                fit: BoxFit.cover,),
+            )
+        ),
+
+        const SizedBox(width: 15.0,),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children:  [
+              Text('${doctor!.name}',
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style:const TextStyle(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.bold,)
+                ,),
+              const SizedBox(height: 3.0,),
+              Text('speciality : ${doctor.speciality}',
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style:const TextStyle(
+                    fontSize: 14.0,
+                    color: grey, )
+              ),
+            ],
+          ),
+        ),
+      ],
+    ),
+  ),
+);
+
+Widget patientItem({
+  required PatientModel? patient,
+  required  function,
+}) => InkWell(
+  onTap: function,
+  highlightColor: grey,
+  child: Container(
+    padding: const EdgeInsets.all(14.0),
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(200),
+      color: white,
+      boxShadow: const [
+        BoxShadow(
+          offset: Offset(0, 2),
+          blurRadius: 5,
+          color: grey,
+        ),
+      ],
+    ),
+    child: Row(
+      children: [
+        const SizedBox(
+          width: 15.0,
+        ),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                '${patient?.name}',
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(
+                height: 3.0,
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(
+          width: 15.0,
+        ),
+      ],
+    ),
+  ),
+);
+
+Widget appointmentItem({
+  required AppointmentModel ? appointment,
+  bool isDoctor = false,
+  bool isPatient = false,
+}) => Container(
+      padding: const EdgeInsets.all(14.0),
+      decoration:  BoxDecoration(
+        borderRadius: BorderRadius.circular(200),
+        color: white,
+        boxShadow: const [
+          BoxShadow(
+            offset: Offset(0,2),
+            blurRadius: 5,
+            color: grey,
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children:  [
+                Text(
+                  isPatient ?
+                  'Dr.${appointment!.doctorName}'
+                  :  '${appointment!.patientName}',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style:const TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold,)
+                  ,),
+                Text('Date : ${appointment.appDate}',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style:const TextStyle(
+                    fontSize: 14.0,
+                    color:grey,
+                  )
+                  ,),
+                const SizedBox(height: 3.0,),
+                Text( 'Time : ${appointment.appTime}',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style:const TextStyle(
+                      fontSize: 14.0,
+                      color:grey, )
+                ),
+                isPatient ?
+                Text('speciality : ${appointment.departmentName}',
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style:const TextStyle(
+                      fontSize: 14.0,
+                      color:grey, )
+                )
+                : const SizedBox(height: 1.0,),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );

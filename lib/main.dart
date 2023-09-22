@@ -47,12 +47,6 @@ class MyApp extends StatelessWidget {
 
     MyLocalController controller = Get.put(MyLocalController());
 
-    DoctorModel doctor = DoctorModel(doctorId: 1, departmentId: 1,
-        name: "Rama Alhussin", description:'rama is a doctor for dental ....',
-      speciality: 'dental' , phone: '09887644442' ,
-      //image:
-    );
-
 
     // if(token != null)
     // {

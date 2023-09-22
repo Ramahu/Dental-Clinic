@@ -29,7 +29,7 @@ class ArticleDetail extends StatelessWidget {
     gradient: const LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
-    colors: [orange1,orange2],
+    colors: [redAccent,red2],
     ),
     ),
     child: Column(

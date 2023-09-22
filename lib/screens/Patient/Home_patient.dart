@@ -13,6 +13,7 @@ import '../../locale/locale_controller.dart';
 import '../../model/Article_model.dart';
 import '../../model/department_model.dart';
 import '../../model/doctor_model.dart';
+import '../../shared/components/components.dart';
 import '../../shared/components/constants.dart';
 import '../Doctor_profile.dart';
 import '../Signin.dart';
@@ -332,8 +333,11 @@ class PatientHome extends StatelessWidget {
                 return ListView.separated(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                itemBuilder: (context, index) =>  buildDocItem(context,
-                  doctorController.DoctorList[index],
+                itemBuilder: (context, index) =>  doctorItem(
+                  doctor: doctorController.DoctorList[index],
+                  function:   (){
+                    Get.to( DoctorProfile( doctor: doctorController.DoctorList[index],),);
+                  },
                 ),
                 separatorBuilder: (context, index) => const SizedBox(height: 12.0,),
                 itemCount:doctorController.DoctorList.length,
@@ -347,6 +351,7 @@ class PatientHome extends StatelessWidget {
       ),
     );
   }
+
   buildDepartment(DepartmentModel? department , int? index ) => InkWell(
   onTap: (){
     Get.to( DepDoc( department: department,),);
@@ -368,7 +373,7 @@ class PatientHome extends StatelessWidget {
       gradient:  LinearGradient(
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
-        colors: index!.isEven ?  [orange1,orange2] : [indigoAccent,white],
+        colors: index!.isEven ?  [redAccent,red2] : [indigoAccent,indigo2],
       ),
     ),
     child: Column(
@@ -440,70 +445,5 @@ class PatientHome extends StatelessWidget {
        ),
   );
 
-  Widget buildDocItem(BuildContext context , DoctorModel ? doctor) => InkWell(
-        onTap: (){
-          Get.to( DoctorProfile( doctor: doctor,),);
-        },
-        highlightColor: grey,
-        child: Container(
-          padding: const EdgeInsets.all(14.0),
-          decoration:  BoxDecoration(
-            borderRadius: BorderRadius.circular(200),
-            color: white,
-            boxShadow: const [
-              BoxShadow(
-                offset: Offset(0,2),
-                blurRadius: 5,
-                color: grey,
-              ),
-            ],
-          ),
-          child: Row(
-            children: [
-              const SizedBox(width: 10.0,),
-              Container(
-                  width: 60,
-                  height: 60,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadiusDirectional.circular(60.0),
-                  ),
-                  clipBehavior: Clip.antiAliasWithSaveLayer,
-                  child:Hero(
-                    tag: 'doctor ${doctor?.doctorId}',
-                    child: Image( image:
-                    NetworkImage(
-                       // '${doctor?.image}'
-                      'https://www.nicepng.com/png/detail/7-74994_free-png-doctor-png-images-transparent-doctor-images.png'
-                    ),
-                      fit: BoxFit.cover,),
-                  )
-              ),
 
-              const SizedBox(width: 15.0,),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children:  [
-                    Text('${doctor!.name}',
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style:const TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,)
-                      ,),
-                    const SizedBox(height: 3.0,),
-                    Text('speciality : ${doctor.speciality}',
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style:const TextStyle(
-                          fontSize: 14.0,
-                          color: grey, )
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      );
 }

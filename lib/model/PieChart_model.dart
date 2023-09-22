@@ -22,7 +22,7 @@ import '../shared/components/constants.dart';
     PieChartModel(
       departmentName: 'treat' ,
       percent: 50,
-      color: orange1,
+      color: redAccent,
     ),
 
   ];

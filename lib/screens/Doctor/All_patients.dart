@@ -62,7 +62,12 @@ class Clinic_Patient extends StatelessWidget {
           return defaultPull(
             function: handleRefresh,
             list: ListView.separated(
-              itemBuilder: (context, index) => buildPatItem(context, patientController.patientList[index]),
+              itemBuilder: (context, index) =>  patientItem(
+                  patient: patientController.patientList[index],
+                  function: () {
+                    Get.to(alldiagnoses(patient:patientController.patientList[index]));
+                  },
+              ),
               separatorBuilder: (context, index) =>
               const SizedBox(height: 12.0,),
               itemCount: patientController.patientList.length,
@@ -73,55 +78,4 @@ class Clinic_Patient extends StatelessWidget {
 
     );
   }
-
-  Widget buildPatItem(BuildContext context, PatientModel? patient,) => InkWell(
-          onTap: () {
-            Get.to(alldiagnoses(patient:patient
-                 ));
-          },
-          highlightColor: grey,
-          child: Container(
-            padding: const EdgeInsets.all(14.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(200),
-              color: white,
-              boxShadow: const [
-                BoxShadow(
-                  offset: Offset(0, 2),
-                  blurRadius: 5,
-                  color: grey,
-                ),
-              ],
-            ),
-            child: Row(
-              children: [
-                const SizedBox(
-                  width: 15.0,
-                ),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        '${patient?.name}',
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 3.0,
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                  width: 15.0,
-                ),
-              ],
-            ),
-          ),
-      );
 }

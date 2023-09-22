@@ -18,7 +18,7 @@ final List<BarChartModel> chartModel =[
   BarChartModel(
     doctorName: 'Jamal' ,
     percent: 60,
-    color: charts.ColorUtil.fromDartColor(orange1),
+    color: charts.ColorUtil.fromDartColor(redAccent),
   ),
   BarChartModel(
     doctorName: 'Jawad' ,

@@ -60,8 +60,9 @@ class AppointmentPatient extends StatelessWidget {
           return defaultPull(
             function: handleRefresh,
             list: ListView.separated(
-              itemBuilder: (context, index) => buildAppItem(context,
-                appController.appointmentList[index],
+              itemBuilder: (context, index) => appointmentItem(
+                appointment: appController.appointmentList[index],
+                isPatient: true,
               ),
               separatorBuilder: (context, index) => const SizedBox(height: 12.0,),
               itemCount: appController.appointmentList.length,
@@ -71,62 +72,5 @@ class AppointmentPatient extends StatelessWidget {
       ),
     );
   }
-
-  Widget buildAppItem(BuildContext context , AppointmentModel ? appointment) =>
-      Container(
-          padding: const EdgeInsets.all(14.0),
-          decoration:  BoxDecoration(
-            borderRadius: BorderRadius.circular(200),
-            color: white,
-            boxShadow: const [
-              BoxShadow(
-                offset: Offset(0,2),
-                blurRadius: 5,
-                color: grey,
-              ),
-            ],
-          ),
-          child: Row(
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children:  [
-                    Text('Dr.${appointment!.doctorName}',
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style:const TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,)
-                      ,),
-                    Text('Date : ${appointment.appDate}',
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style:const TextStyle(
-                        fontSize: 14.0,
-                        color:grey,
-                       )
-                      ,),
-                    const SizedBox(height: 3.0,),
-                    Text( 'Time : ${appointment.appTime}',
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style:const TextStyle(
-                          fontSize: 14.0,
-                          color:grey, )
-                    ),
-                    Text('speciality : ${appointment.departmentName}',
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style:const TextStyle(
-                          fontSize: 14.0,
-                          color:grey, )
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-      );
 
 }

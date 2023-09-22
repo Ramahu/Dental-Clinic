@@ -11,10 +11,8 @@ const defaultGreen2 =Color(0xFF55C1CE);
 const defaultGreen3 =Color(0xFF80FFF4);
 const Green1 =Color(0xFF05999E);
 const Green2 =Color(0xFFCBE7E3);
-const defaultOr = Color(0xFFF69383);
-const orange1 = Color(0xFFFF9C60);
-const orange2 = Color(0xFFFFD6B8);
-
+const red2 = Color(0xFFF18585);
+const indigo2 = Color(0xFF899AF3);
 const grey2 = Color(0xFF96D9DC);
 const green =Color(0xFF55C1CE);
 const red = Colors.red;

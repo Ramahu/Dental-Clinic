@@ -25,7 +25,7 @@ class DoctorProfile extends StatelessWidget{
            gradient:  LinearGradient(
              begin: Alignment.topLeft,
              end: Alignment.bottomRight,
-             colors: [orange1,orange2],
+             colors: [redAccent,red2],
            ),
        ),
          child: Stack(
@@ -124,8 +124,8 @@ class DoctorProfile extends StatelessWidget{
                       child: defaultGradientBottom(text: 'Add Appointment' ,
                                     width: 250.0,
                                     height: 60.0,
-                          color1: orange1,
-                          color2: orange2,
+                          color1: redAccent,
+                          color2: red2,
                                     function: ()async{
                                       Get.to( AddAppointment( doctor: doctor,),);
                                   // await DataBaseHelper.sendNotification('Hi Dr.${doctor?.name}',
