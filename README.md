@@ -12,6 +12,7 @@ The system includes three distinct roles: patient, doctor, and admin, with each 
 These features are shared among all three roles :
 
 1- Login: Based on role, email, and password.
+Provide a "Forgot Password" feature .
 
 2- Account Creation: Includes role, name, email, password, confirm password, and gender.
 
