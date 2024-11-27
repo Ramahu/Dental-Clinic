@@ -17,6 +17,9 @@ These features are shared among all three roles :
 
 3- Logout: Allows users to securely terminate their session.
 
+4- Reset Password :
+Users enter their registered email address to receive a verification code.
+
 #### Admin Application Requirements :
 
 1- Add Doctor:
