@@ -128,5 +128,26 @@ Splash screen , Login , Create Account , reset password , code :
 #### Patient Application :
 
 
-### Flutter :
+### Technology Stack for the Clinic Management System :
+
+Frontend: Built using Flutter with the following tools and libraries:
+
+1- State Management:
+GetX: Used for efficient and reactive state management, dependency injection, and navigation handling.
+
+2- API Integration:
+HTTP & Dio
+
+3- Caching:
+Shared Preferences: Utilized for local data storage, such as caching user credentials, settings, and other temporary data.
+
+4- UI Enhancements:
+Google Fonts: Provides customizable and elegant font styling.
+Image Picker: Allows users to select images from the gallery or capture new ones using the camera.
+Date Time Picker: Simplifies the selection of dates and times for scheduling appointments.
+Pie Chart & FL Chart: Used to visualize data and statistics in dashboards with interactive charts.
+Carousel Slider: For creating image or content sliders within the app.
+Rating Dialog: Enables users to give ratings or feedback within the application.
+Alert Dialog: Displays customizable alerts for various actions and confirmations.
+ 
 
