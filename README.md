@@ -160,5 +160,7 @@ Rating Dialog: Enables users to give ratings or feedback within the application.
 
 Alert Dialog: Displays customizable alerts for various actions and confirmations.
 
+Neumorphic UI: Implements modern, soft design elements for an aesthetically pleasing user interface.
+
  
 
