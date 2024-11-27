@@ -95,6 +95,8 @@ Shows details of the patient's bookings, such as the appointment time, date, doc
 8- Cancel an Appointment:
 Enables patients to delete a previously booked appointment.
 
+9- Add Rating to Doctor:
+Allows patients to rate doctors based on their experience.
 
 #### Doctor Application Requirements :
 
