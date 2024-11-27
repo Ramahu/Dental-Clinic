@@ -92,4 +92,26 @@ Shows details of the patient's bookings, such as the appointment time, date, doc
 Enables patients to delete a previously booked appointment.
 
 
+Doctor Application Requirements :
+
+1- View All Patients:
+Allows the doctor to see a list of all patients assigned to them.
+
+2- View All Booked Appointments:
+Displays all appointments scheduled with the doctor, along with details such as date and time.
+
+3- Add Medical Report:
+Enables the doctor to create and add a medical report for a patient, including necessary details about the patient's condition and recommendations.
+
+4- View All Medical Reports:
+Provides access to review all medical reports created for the doctor's patients.
+
+5- Delete Medical Report:
+Allows the doctor to delete a previously created medical report.
+
+6- Doctor Dashboard:
+Displays statistics specific to the doctor, such as the total number of patients under their care.
+
+
+
 ### Interface :
