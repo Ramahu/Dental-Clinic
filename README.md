@@ -133,13 +133,15 @@ Splash screen , Login , Create Account , reset password , code :
 Frontend: Built using Flutter with the following tools and libraries:
 
 1- State Management:
-GetX: Used for efficient and reactive state management, dependency injection, and navigation handling.
+GetX:
+Used for efficient and reactive state management, dependency injection, and navigation handling.
 
 2- API Integration:
 HTTP & Dio
 
 3- Caching:
-Shared Preferences: Utilized for local data storage, such as caching user credentials, settings, and other temporary data.
+Shared Preferences:
+Utilized for local data storage, such as caching user credentials, settings, and other temporary data.
 
 4- UI Enhancements:
 
