@@ -17,7 +17,7 @@ These features are shared among all three roles :
 
 3- Logout: Allows users to securely terminate their session.
 
-##### *Admin Application Requirements* :
+#### Admin Application Requirements :
 
 1- Add Doctor:
 Allows the admin to add a new doctor to the clinic by entering details such as name, photo, description, contact number, and working hours.
@@ -65,9 +65,7 @@ Allows the admin to access and review all medical reports associated with patien
 Provides an overview of clinic operations, including statistical data on patients, departments, and other key metrics.
 
 
-
-
-Patient Application Requirements:
+#### Patient Application Requirements:
 
 1- View All Doctors:
 Displays a list of all doctors in the clinic, including details such as the doctor's name, photo, and department.
@@ -94,9 +92,7 @@ Shows details of the patient's bookings, such as the appointment time, date, doc
 Enables patients to delete a previously booked appointment.
 
 
-
-
-Doctor Application Requirements :
+#### Doctor Application Requirements :
 
 1- View All Patients:
 Allows the doctor to see a list of all patients assigned to them.
