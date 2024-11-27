@@ -17,9 +17,7 @@ These features are shared among all three roles :
 
 3- Logout: Allows users to securely terminate their session.
 
-
-
-Admin Application Requirements :
+*Admin Application Requirements* :
 
 1- Add Doctor:
 Allows the admin to add a new doctor to the clinic by entering details such as name, photo, description, contact number, and working hours.
