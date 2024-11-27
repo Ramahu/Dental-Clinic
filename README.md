@@ -10,9 +10,13 @@ With its user-friendly interface and role-specific features, this system simplif
 
 The system includes three distinct roles: patient, doctor, and admin, with each role having its own dedicated application.
 These features are shared among all three roles :
+
 1- Login: Based on role, email, and password.
+
 2- Account Creation: Includes role, name, email, password, confirm password, and gender.
+
 3- Logout: Allows users to securely terminate their session.
+
 
 Patient Application Requirements:
 
