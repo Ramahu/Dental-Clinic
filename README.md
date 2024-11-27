@@ -115,3 +115,11 @@ Displays statistics specific to the doctor, such as the total number of patients
 
 
 ### Interface :
+
+Splash screen , Login , Create Account , reset password , code :
+
+#### Admin Application :
+
+#### Doctor Application :
+
+#### Patient Application :
