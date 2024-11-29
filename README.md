@@ -131,8 +131,8 @@ Displays statistics specific to the doctor, such as the total number of patients
 Splash screen , onboarding :
 
 
-![Mobile App Screen Mockup, Floating (5)](https://github.com/user-attachments/assets/0d551314-da53-48c0-97a1-dcce13a0fe00)
- 
+![Mobile App Screen Mockup, Floating (5)](https://github.com/user-attachments/assets/026cef19-6d9c-4e58-afa2-54cf98d42f2a)
+
 
 Login , Create Account , reset password , email verification :
 
