@@ -68,6 +68,7 @@ Allows the admin to access and review all medical reports associated with patien
 15- Dashboard with Statistics:
 Provides an overview of clinic operations, including statistical data on patients, departments, and other key metrics.
 
+16- Search for doctor 
 
 #### Patient Application Requirements:
 
@@ -98,6 +99,9 @@ Enables patients to delete a previously booked appointment.
 9- Add Rating to Doctor:
 Allows patients to rate doctors based on their experience.
 
+10- Search for doctor 
+
+
 #### Doctor Application Requirements :
 
 1- View All Patients:
@@ -117,6 +121,8 @@ Allows the doctor to delete a previously created medical report.
 
 6- Doctor Dashboard:
 Displays statistics specific to the doctor, such as the total number of patients under their care.
+
+7- Search for patient 
 
 
 
