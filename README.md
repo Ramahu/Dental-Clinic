@@ -122,7 +122,17 @@ Displays statistics specific to the doctor, such as the total number of patients
 
 ### Interface :
 
-Splash screen , Login , Create Account , reset password , code :
+Splash screen , onboarding :
+
+
+![Mobile App Screen Mockup, Floating (5)](https://github.com/user-attachments/assets/0d551314-da53-48c0-97a1-dcce13a0fe00)
+ 
+
+Login , Create Account , reset password , email verification :
+
+
+![Mobile App Screen Mockup, Floating (1)](https://github.com/user-attachments/assets/8efbd7a9-9dd0-4399-ac99-84b2a7c3eccd)
+
 
 #### Admin Application :
 
