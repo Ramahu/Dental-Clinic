@@ -39,7 +39,7 @@ dependencies:
   image_picker: ^0.8.5+3
   get: ^4.6.5
   liquid_pull_to_refresh:
-  neumorphic_ui: ^1.0.0
+  neumorphic_ui:
   carousel_slider:
   curved_navigation_bar:
   rating_dialog:
@@ -48,10 +48,9 @@ dependencies:
   firebase_storage:
   firebase_messaging:
   cloud_firestore:
-  charts_flutter:
   fl_chart:
   pie_chart:
-  dio: ^4.0.6
+  dio: ^5.7.0
   shared_preferences:
   flutter_svg:
   hexcolor:
@@ -66,7 +65,7 @@ dependencies:
   date_picker_timeline:
   time_slot:
   datepicker_dropdown: ^0.0.8
-
+  charts_flutter: ^0.12.0
 
 
 dev_dependencies:

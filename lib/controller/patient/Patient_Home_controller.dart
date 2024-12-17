@@ -7,7 +7,7 @@ import '../../shared/local/cache_helper.dart';
 class PatientHomeController extends GetxController {
 
   var tabIndex = 0.obs;
-  //String  token = CacheHelper.getData(key: "token");
+  String  token = CacheHelper.getData(key: "token");
 
   void changeTabIndex(int index){
     tabIndex.value = index ;
@@ -35,9 +35,9 @@ class PatientHomeController extends GetxController {
 
   @override
   void onReady() async{
-    // await DataBaseHelper.getMe(
-    //   token: token.toString(),
-    // );
+    await DataBaseHelper.getMe(
+      token: token.toString(),
+    );
     super.onReady();
 
   }

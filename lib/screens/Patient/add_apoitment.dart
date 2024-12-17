@@ -116,7 +116,7 @@ class AddAppointment extends StatelessWidget{
                           initTime: DateTime.now(),
                           selectedColor: indigoAccent,
                           unSelectedColor: white,
-                          crossAxisCount: 3,
+                          crossAxisCount: 2,
                           timeSlotInterval: const TimeSlotInterval(
                             start: TimeOfDay(hour: 9, minute: 00),
                             end: TimeOfDay(hour: 21, minute: 0),

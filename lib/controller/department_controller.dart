@@ -8,25 +8,32 @@ import '../shared/local/cache_helper.dart';
 
 class DepartmentController extends GetxController {
 
-  List<DepartmentModel> DepartmentList =[
-    DepartmentModel(
-      speciality: 'dental',
-      id: 0,
-    ),
-    DepartmentModel(
-      speciality: 'cosmetic',
-      id: 1,
-    ),
-    DepartmentModel(
-      speciality: 'dental',
-      id: 2,
-    ),
-  ];
+  // List<DepartmentModel> DepartmentList =[
+  //   DepartmentModel(
+  //     speciality: 'Orthodontics',
+  //     id: 0,
+  //     openTime : "9",
+  //     closeTime : "4" ,
+  //   ),
+  //   DepartmentModel(
+  //     speciality: 'Oral Surgery',
+  //     id: 1,
+  //     openTime : "10",
+  //     closeTime : "5" ,
+  //   ),
+  //   DepartmentModel(
+  //     speciality: 'Pediatric Dentistry',
+  //     id: 2,
+  //     openTime : "12",
+  //     closeTime : "6" ,
+  //   ),
+  // ];
+  List<DepartmentModel> DepartmentList =[];
   var isLoading = true.obs;
 
   var selectedOpenTime = DateTime.now().obs;
   var selectedCloseTime = DateTime.now().obs;
-  //String  token = CacheHelper.getData(key: "token");
+  String  token = CacheHelper.getData(key: "token");
 
 
   chooseOpenTime() async{
@@ -58,10 +65,10 @@ class DepartmentController extends GetxController {
   }
   @override
   void onReady() async{
-    //DataBaseHelper.token
-    // DepartmentList= await DataBaseHelper.getDepartments(
-    //   token: token.toString(),
-    // );
+    // DataBaseHelper.token
+    DepartmentList = await DataBaseHelper.getDepartments(
+      token: token.toString(),
+    );
     isLoading(false);
     super.onReady();
   }

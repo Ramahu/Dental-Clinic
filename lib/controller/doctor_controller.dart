@@ -9,13 +9,37 @@ import '../shared/local/cache_helper.dart';
 
 class DoctorController extends GetxController {
 
-  List<DoctorModel> DoctorList =[
-   DoctorModel(doctorId: 1, departmentId: 1,
-    name: "Rama Alhussin", description:'rama is a doctor for dental ....',
-    speciality: 'dental' , phone: '09887644442' ,
-    //image:'',
-  ),
-  ];
+  List<DoctorModel> DoctorList =[];
+  // List<DoctorModel> DoctorList = [
+  //   DoctorModel(
+  //     doctorId: 1,
+  //     departmentId: 0,
+  //     name: "Rama Hamad",
+  //     description: "Rama is a doctor specializing in dental orthodontics.",
+  //     speciality: "Orthodontics",
+  //     phone: "09887644442",
+  //     image: 'https://img.freepik.com/premium-psd/female-doctor-isolated-transparent-background_879541-1281.jpg?w=360',
+  //   ),
+  //   DoctorModel(
+  //     doctorId: 2,
+  //     departmentId: 1,
+  //     name: "Ahmed Saleh",
+  //     description: "Ahmed is an experienced dentist with a focus on oral surgery.",
+  //     speciality: "Oral Surgery",
+  //     phone: "09876543211",
+  //     image: 'https://image.similarpng.com/very-thumbnail/2020/05/Male-young-doctor-transparent-PNG.png',
+  //   ),
+  //   DoctorModel(
+  //     doctorId: 3,
+  //     departmentId: 2,
+  //     name: "Lina Kareem",
+  //     description: "Lina specializes in pediatric dentistry, caring for children’s dental health.",
+  //     speciality: "Pediatric Dentistry",
+  //     phone: "09881234567",
+  //     image: 'https://img.freepik.com/premium-psd/female-doctor-png-isolated-transparent-background_645927-13964.jpg?w=740',
+  //   ),
+  // ];
+
   var isLoading = true.obs;
   PickedFile? _pickedFile;
   PickedFile? get pickedFile => _pickedFile;
@@ -23,11 +47,11 @@ class DoctorController extends GetxController {
   String? get imagePath => _imagePath;
    final imagePicker= ImagePicker();
    var rating = 0.0.obs;
-  // final doctor = <DoctorModel>[].obs;
-  // List<DoctorModel> get doctorList => doctor.value;
+  final doctor = <DoctorModel>[].obs;
+  List<DoctorModel> get doctorList => doctor.value;
   //  var imagePath=''.obs;
   // PickedFile? pickedFile = ''.obs as PickedFile?;
-  //String  token = CacheHelper.getData(key: "token");
+  String  token = CacheHelper.getData(key: "token");
 
 
    @override
@@ -40,9 +64,9 @@ class DoctorController extends GetxController {
   }
    @override
    void onReady() async{
-     // DoctorList = await DataBaseHelper.getDoctors(
-     //   token: token.toString(),
-     // );
+     DoctorList = await DataBaseHelper.getDoctors(
+       token: token.toString(),
+     );
      isLoading(false);
      super.onReady();
 

@@ -22,7 +22,7 @@ import '../shared/local/cache_helper.dart';
 
 class DataBaseHelper {
   static final  dio = Dio();
-  static String serverUrl = "http://192.168.1.111:8000";
+  static String serverUrl = "http://192.168.1.102:8000";
   //var status;
   //static String? token;
   static final time = DateFormat.Hm();

@@ -14,7 +14,7 @@ class PatientAppointmentController extends GetxController {
   var appoTime = DateTime.now().obs;
   var appDate = DateTime.now().obs;
   var appoDate = DateTime.now().obs;
- // String  token = CacheHelper.getData(key: "token");
+ String  token = CacheHelper.getData(key: "token");
 
 
   chooseAppointmentTime() async {
@@ -67,10 +67,10 @@ class PatientAppointmentController extends GetxController {
   }
   @override
   void onReady() async{
-    // appointmentList = await DataBaseHelper.getPatientAppointment(
-    //     token: token.toString(),
-    //     userId:userId.toString(),
-    // );
+    appointmentList = await DataBaseHelper.getPatientAppointment(
+        token: token.toString(),
+        userId:userId.toString(),
+    );
     isLoading(false);
     super.onReady();
 

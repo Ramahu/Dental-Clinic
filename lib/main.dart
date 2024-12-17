@@ -40,7 +40,7 @@ void main() async {
 
 class MyApp extends StatelessWidget {
 
-  //late Widget widget;
+  late Widget widget;
   @override
   Widget build(BuildContext context) {
     FlutterNativeSplash.remove();
@@ -48,31 +48,31 @@ class MyApp extends StatelessWidget {
     MyLocalController controller = Get.put(MyLocalController());
 
 
-    // if(token != null)
-    // {
-    //   if(isAdmin.isTrue)
-    //   {
-    //     widget= HomeAdmin();
-    //   }
-    //   else if (isDoctor.isTrue)
-    //   {
-    //     widget=DoctorLayout();
-    //   }
-    //   else if (isPatient.isTrue)
-    //   {
-    //     widget=PatientLayout();
-    //   }
-    // }
-    // else{
-    //   widget= Splash();
-    // }
+    if(token != null)
+    {
+      if(isAdmin.isTrue)
+      {
+        widget= HomeAdmin();
+      }
+      else if (isDoctor.isTrue)
+      {
+        widget=DoctorLayout();
+      }
+      else if (isPatient.isTrue)
+      {
+        widget=PatientLayout();
+      }
+    }
+    else{
+      widget= onboarding();
+    }
 
     return GetMaterialApp(
-      title: 'dental clinic',
+      title: 'Dental clinic',
       locale: controller.initialLang,
       translations: MyLocale(),
       debugShowCheckedModeBanner: false,
-      home: onboarding(),
+      home: widget,
 
 
 
