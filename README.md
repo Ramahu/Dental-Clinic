@@ -68,7 +68,7 @@ Allows the admin to access and review all medical reports associated with patien
 15- Dashboard with Statistics:
 Provides an overview of clinic operations, including statistical data on patients, departments, and other key metrics.
 
-16- Search for doctor 
+16- Search for doctor by name
 
 #### Patient Application Requirements:
 
@@ -99,7 +99,7 @@ Enables patients to delete a previously booked appointment.
 9- Add Rating to Doctor:
 Allows patients to rate doctors based on their experience.
 
-10- Search for doctor 
+10- Search for doctor by name
 
 
 #### Doctor Application Requirements :
@@ -122,7 +122,7 @@ Allows the doctor to delete a previously created medical report.
 6- Doctor Dashboard:
 Displays statistics specific to the doctor, such as the total number of patients under their care.
 
-7- Search for patient 
+7- Search for patient by name
 
 
 
@@ -142,9 +142,43 @@ Login , Create Account , reset password , email verification :
 
 #### Admin Application :
 
+Drawer , Home , Clinic doctors :
+
+![Mobile App Screen Mockup, Floating (3)](https://github.com/user-attachments/assets/15c7f572-b9f4-4f4c-aba0-e6d7119b6ffd)
+
+Clinic doctors , Add doctor , Doctor Profile :
+
+![Mobile App Screen Mockup, Floating (6)](https://github.com/user-attachments/assets/5bb1a5d9-6aa8-4e7f-977e-77847e738c98)
+
+Clinic Departments , Archive Department , Add Department , Choose Time :
+
+![Mobile App Screen Mockup, Floating (4)](https://github.com/user-attachments/assets/3e2b5525-bb06-43ff-81a7-b93f405d888a)
+
+Article Details , Add Article , Clinic Articles , Archive Article :
+
+
+
+
 #### Doctor Application :
 
+Drawer , Home , Doctor's Appointments , Doctor's Patients :
+
+Add diagnoses , all diagnoses ,  , :
+
+
+
 #### Patient Application :
+
+Drawer , Home , Article Details :
+
+![Mobile App Screen Mockup, Floating](https://github.com/user-attachments/assets/607e0a68-01bf-48bc-85ed-1936b2c564f4)
+
+Rating , Doctor Profile , Book an Appointment :
+
+![Mobile App Screen Mockup, Floating (2)](https://github.com/user-attachments/assets/dbb812f2-195f-4380-aecb-f8fd55f299c7)
+
+search for doctor , Department's Doctors , Patient's Appointments :
+
 
 
 ### Technology Stack for the Clinic Management System :
