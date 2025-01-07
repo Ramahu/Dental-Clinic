@@ -142,6 +142,7 @@ Login , Create Account , reset password , email verification :
 
 #### Admin Application :
 
+
 Drawer , Home , Clinic doctors :
 
 ![Mobile App Screen Mockup, Floating (3)](https://github.com/user-attachments/assets/15c7f572-b9f4-4f4c-aba0-e6d7119b6ffd)
@@ -154,20 +155,31 @@ Clinic Departments , Archive Department , Add Department , Choose Time :
 
 ![Mobile App Screen Mockup, Floating (4)](https://github.com/user-attachments/assets/3e2b5525-bb06-43ff-81a7-b93f405d888a)
 
-Article Details , Add Article , Clinic Articles , Archive Article :
+Clinic Articles , Add Article , Delete Article :
 
+![Mobile App Screen Mockup, Floating (7)](https://github.com/user-attachments/assets/81ca4f8f-98ff-43e0-896f-ca4eb1a797ab)
 
+Archive doctor , search for doctor , Article Details :
+
+![Mobile App Screen Mockup, Floating (10)](https://github.com/user-attachments/assets/03c9d5ec-61b4-484f-9180-303c2d7490ec)
 
 
 #### Doctor Application :
 
+
 Drawer , Home , Doctor's Appointments , Doctor's Patients :
 
-Add diagnoses , all diagnoses ,  , :
+![Mobile App Screen Mockup, Floating (8)](https://github.com/user-attachments/assets/8227b49a-edf9-43c4-9f2a-fa519d62283c)
+
+
+diagnoses Details , all diagnoses , Add diagnoses  :
+
+![Mobile App Screen Mockup, Floating (9)](https://github.com/user-attachments/assets/a88eab5d-44d9-4e61-8f6e-fcab816d3f4e)
 
 
 
 #### Patient Application :
+
 
 Drawer , Home , Article Details :
 
@@ -179,6 +191,7 @@ Rating , Doctor Profile , Book an Appointment :
 
 search for doctor , Department's Doctors , Patient's Appointments :
 
+![Mobile App Screen Mockup, Floating (11)](https://github.com/user-attachments/assets/ede112a8-adc0-4912-a2eb-cb601c49826a)
 
 
 ### Technology Stack for the Clinic Management System :
