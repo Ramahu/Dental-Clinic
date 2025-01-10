@@ -3,8 +3,6 @@ The Dental Clinic Management System (SMILE APP) is a comprehensive application d
 Patients can easily book appointments, view doctor profiles, explore clinic departments, and access informative medical articles. Doctors can manage their schedules, appointments, and patient interactions seamlessly. Administrators can oversee the clinic's operations, ensuring smooth coordination across all departments.  
 With its user-friendly interface and role-specific features, this system simplifies clinic management, improves service delivery, and ensures a high level of satisfaction for all users.
 
-### Demo : 
-
 
 ### Functional Requirements :
 
